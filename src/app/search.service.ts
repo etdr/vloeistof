@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-import { QIngredient, Drink, Ingredient, CDBDrink, CDBDrinksObject } from './types';
+import { QIngredient, Drink, Ingredient, CDBDrink, CDBDrinksObject,
+         CDBDrinkMin, CDBDrinkMinObject } from './types';
 
-const BASEURL = "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?";
+const BASEURL = "https://www.thecocktaildb.com/api/json/v2/9973533/";
 
 // const cDBIngFields = ['strIngredient1','strIngredient2','strIngredient3','strIngredient4','strIngredient5',
 //                       'strIngredient6','strIngredient7','strIngredient8','strIngredient9','strIngredient10',
@@ -31,13 +32,14 @@ export class SearchService {
     if (!term.trim()) {
       this.drinkResults = [];
     }
-    this.http.get<CDBDrinksObject>(BASEURL+'s='+encodeURIComponent(term)).pipe(map(x => x.drinks))
+    this.http.get<CDBDrinksObject>(BASEURL+'search.php?s='+encodeURIComponent(term)).pipe(map(x => x.drinks))
       .subscribe(cdos => {
         this.drinkResults = [];
         for (let cdo of cdos) {
           let d = new Drink();
           d.name = cdo.strDrink;
           d.instructions = cdo.strInstructions;
+          d.thumbUrl = cdo.strDrinkThumb;
           for (let i = 0; i < 15; i++) {
             if (cdo['strIngredient'+(i+1).toString()]) {
               d.ingredients.push({
@@ -50,6 +52,24 @@ export class SearchService {
           this.drinkResults.push(d);
         }
       })
+    console.log(this.drinkResults);
+  }
+
+  getDrinksByIngredient (term: string): void {
+    if (!term.trim()) {
+      this.drinkResults = [];
+    }
+    this.http.get<CDBDrinkMinObject>(BASEURL+'filter.php?i='+encodeURIComponent(term)).pipe(map(x => x.drinks))
+      .subscribe(cdos => {
+        this.drinkResults = [];
+        for (let cdo of cdos) {
+          let d = new Drink();
+          d.name = cdo.strDrink;
+          d.thumbUrl = cdo.strDrinkThumb;
+          d.cDBId = parseInt(cdo.idDrink,10);
+          this.drinkResults.push(d)
+        }
+      });
     console.log(this.drinkResults);
   }
 

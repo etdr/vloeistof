@@ -13,13 +13,16 @@ export class Drink {
   ingredients: QIngredient[];
   instructions: string;
   userId: number;
+  thumbUrl: string;
+  cDBId: number;
 
-  constructor (i:number = 0, n:string = "", ings:QIngredient[] = [], instrs:string = "", uid:number = 0) {
+  constructor (i:number = 0, n:string = "", ings:QIngredient[] = [], instrs:string = "", uid:number = 0, tU:string = "", cId:number = 0) {
     this.id = i;
     this.name = n;
     this.ingredients = ings;
     this.instructions = instrs;
     this.userId = uid;
+    this.thumbUrl = tU;
   }
 }
 
@@ -37,12 +40,12 @@ export class Ingredient {
 
 // types from the API
 
-export class CDBDrinksObject {
+export interface CDBDrinksObject {
   drinks: CDBDrink[];
 }
 
 
-export class CDBDrink {
+export interface CDBDrink {
   idDrink: string;
   strDrink: string;
   //strTags: string;
@@ -50,7 +53,7 @@ export class CDBDrink {
   //strGlass: string;
   strInstructions: string;
   //strInstructionsDE: string;
-  //strDrinkThumb: string;
+  strDrinkThumb: string;
   strIngredient1: string; strIngredient2: string; strIngredient3: string; strIngredient4: string; strIngredient5: string;
   strIngredient6: string; strIngredient7: string; strIngredient8: string; strIngredient9: string; strIngredient10: string;
   strIngredient11: string; strIngredient12: string; strIngredient13: string; strIngredient14: string; strIngredient15: string;
@@ -73,3 +76,14 @@ export class CDBDrink {
 //  "strMeasure8":null,"strMeasure9":null,"strMeasure10":null,"strMeasure11":null,"strMeasure12":null,"strMeasure13":null,"strMeasure14":null,"strMeasure15":null,
 //
 //  "strCreativeCommonsConfirmed":"No","dateModified":"2017-09-02 16:23:32"}
+
+export interface CDBDrinkMinObject {
+  drinks: CDBDrinkMin[];
+}
+
+
+export interface CDBDrinkMin {
+  strDrink: string;
+  strDrinkThumb: string;
+  idDrink: string;
+}

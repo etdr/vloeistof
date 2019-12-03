@@ -32,5 +32,5 @@ $vloeistof-theme: mat-light-theme($vloeistof-primary, $vloeistof-accent, $vloeis
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-// @import './app/scssVariables/app.variables.scss';
+@import './app/scssVariables/app.variables.scss';
 
