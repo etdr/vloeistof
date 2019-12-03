@@ -1,1 +1,19 @@
 <p>mix works!</p>
+
+
+<input placeholder="drink name">
+<div id="ingredients">
+    <h2>Ingredients</h2>
+    <div id="ingredient-add">
+        <input [(ngModel)]="inputAmount">
+        <input [(ngModel)]="inputIngredient">
+        <button (click)="addIngToList()">Add Ingredient</button>
+    </div>
+    <div id="ingredients-list">
+    </div>
+</div>
+
+<div id="instructions">
+<h2>Instructions</h2>
+    <textarea placeholder="instructions"></textarea>
+</div>
