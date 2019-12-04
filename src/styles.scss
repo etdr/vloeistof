@@ -32,7 +32,7 @@ $vloeistof-theme: mat-light-theme($vloeistof-primary, $vloeistof-accent, $vloeis
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; backround-color: var(--darkPlum)}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: var(--darkPlum)}
 
 @import './app/scssVariables/app.variables.scss';
 

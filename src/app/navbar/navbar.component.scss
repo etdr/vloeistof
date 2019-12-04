@@ -30,7 +30,7 @@ nav {
   // border: 1px solid green;
   background-color: var(--plum);
   color: var(--orange);
-  height: 65px;
+  height: 85px;
   font-family: var(--font-two);
   display: flex;
   align-items: baseline; //centers it from top to bottom
@@ -52,6 +52,8 @@ li {
   display: inline;
   padding: 15px;
   font-family: var(--font-two);
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 li a {
