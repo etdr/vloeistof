@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center; //acutally centers this from left to right on the page...don't change this.
   align-items: center; //centers it from top to bottom
+  
 }
 
 #cosmo {
@@ -26,12 +27,17 @@
 }
 
 nav {
-  // border: 1px solid turquoise;
+  // border: 1px solid green;
   background-color: var(--plum);
   color: var(--orange);
-  height: 75px;
+  height: 65px;
   font-family: var(--font-two);
+  display: flex;
+  align-items: baseline; //centers it from top to bottom
+  justify-content: center; //acutally centers this from left to right on the page...don't change this.
+
 }
+
 
 ul {
   list-style-type: none;
@@ -39,6 +45,7 @@ ul {
   padding: 0;
   display: flex;
   flex-direction: row;
+  // border: 1px solid purple;
 }
 
 li {
@@ -53,7 +60,30 @@ li a {
   // flex-wrap: nowrap;
   text-decoration: none;
   color: var(--orange);
-  font-size: 30px;
+  font-size: 25px;
   justify-content: flex-start;
   align-items: baseline;
+}
+
+#mojito {
+  height: 40px;
+  // border: 1px solid black;
+  // margin: auto;
+}
+
+#shaker {
+  height: 40px;
+
+}
+
+#bottles {
+  height: 40px;
+}
+
+#bar {
+  height: 40px;
+}
+
+#beach {
+  height: 40px;
 }
