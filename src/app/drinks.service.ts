@@ -26,6 +26,10 @@ export class DrinksService {
 
   
 
+  getDrinks (): Observable<Drink[]> {
+    return this.http.get<Drink[]>(BASEURL+"/drinks", httpOptions);
+  }
+
 
   
   addDrink (drink: Drink): Observable<Drink> {
