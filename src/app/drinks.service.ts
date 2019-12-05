@@ -36,17 +36,20 @@ export class DrinksService {
 
   
   addDrink (drink: Drink): Observable<Drink> {
-    return this.http.post<Drink>(BASEURL+"/drinks/new", drink, httpOptions)
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
+    return this.http.post<Drink>(BASEURL+"/drinks/new", {drink}, httpOptions)
 
   }
 
 
   modifyDrink (drink: Drink): Observable<number> {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
     return this.http.put<number>(BASEURL+'/drinks/'+drink.id, drink, httpOptions)
   }
 
 
   deleteDrink (drinkId: number): Observable<number> {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
     return this.http.delete<number>(BASEURL+'/drinks/'+drinkId, httpOptions)
   }
 

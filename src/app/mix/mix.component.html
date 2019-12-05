@@ -1,8 +1,13 @@
+
+<input name="drinkName" placeholder="drink name goes here" [(ngModel)]="drinkName">
+
+
+<h2>Ingredients</h2>
 <mat-form-field class="mixChipList">
     <mat-chip-list #chipList aria-label="Mix Selection">
-        <mat-chip *ngFor="let m of mixIng" [selectable]="selectable"
-            [removable]="removable" (removed)="remove(mixIng)">
-        {{m.name}}
+        <mat-chip *ngFor="let m of ings" [selectable]="selectable"
+            [removable]="removable" (removed)="remove(m)">
+        {{m.amount + "&ensp;"}} <strong>{{m.name}}</strong>
         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
         </mat-chip>
         <input placeholder="New mixIng"
@@ -29,9 +34,13 @@
     </div>
     <div id="ingredients-list">
     </div>
-</div>
+</div>-->
 
 <div id="instructions">
 <h2>Instructions</h2>
-    <textarea placeholder="instructions"></textarea>
-</div> -->
+    <textarea placeholder="instructions" [(ngModel)]="instructions"></textarea>
+</div>
+
+
+
+<button type="button" (click)="addDrink()">ADD THAT DRANK</button>

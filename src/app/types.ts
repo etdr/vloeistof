@@ -16,14 +16,14 @@ export class Drink {
   thumbUrl: string;
   cDBId: number;
 
-  constructor (i:number = 0, n:string = "", ings:QIngredient[] = [], instrs:string = "", uid:number = 0, tU:string = "", cId:number = 0) {
-    this.id = i;
-    this.name = n;
-    this.ingredients = ings;
-    this.instructions = instrs;
-    this.userId = uid;
-    this.thumbUrl = tU;
-  }
+  // constructor (i:number = 0, n:string = "", ings:QIngredient[] = [], instrs:string = "", uid:number = 0, tU:string = "", cId:number = 0) {
+  //   this.id = i;
+  //   this.name = n;
+  //   this.ingredients = ings;
+  //   this.instructions = instrs;
+  //   this.userId = uid;
+  //   this.thumbUrl = tU;
+  // }
 }
 
 
