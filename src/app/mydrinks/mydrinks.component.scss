@@ -6,8 +6,17 @@ p {
   color: white;
 }
 
+#createdDrinksH1 {
+  font-family: var(--font-four);
+  font-weight: 300;
+  color: var(--teal);
+  margin: auto;
+  // border: 1px solid white;
+  width: 20%;
+}
+
 .myDrinkCard {
-  border: 1px solid blueviolet;
+  // border: 1px solid blueviolet;
   width: 15%;
   margin: 20px;
   
@@ -15,4 +24,22 @@ p {
 
 .myDrinkTitle {
   border: 1px solid black;
+}
+
+hr {
+  color: var(--orange);
+}
+
+#favoriteDrinksH1 {
+  font-family: var(--font-four);
+  font-weight: 300;
+  color: var(--teal);
+  margin: auto;
+  // border: 1px solid white;
+  width: 20%;
+}
+
+.favDrinkCard {
+  width: 15%;
+  margin: 20px;
 }

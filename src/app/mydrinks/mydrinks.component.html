@@ -1,16 +1,35 @@
 <div class="createdDrinksDiv">
+  <h1 id="createdDrinksH1">My Created Drinks</h1>
   <mat-card class="myDrinkCard">
     <mat-card-title class="myDrinkTitle">My Created Drink 
       <!-- Card title will change once data binding is finished -->
     </mat-card-title>
     <mat-card-content>
       <!-- input the ingredients and instructions -->
-      Ingredients
-      <br>
+      <p id="ingCreated">Ingredients</p>
+      <ul>
+        <li>1oz this</li>
+        <li>1oz that</li>
+        <li>6oz Mix</li>
+      </ul>
+
       Instructions
     </mat-card-content>
   </mat-card>
 </div>
-<!-- <div class="favDrinksDiv">
-***work on my drinks first, then we can add favorited drinks from API*** 
-</div> -->
+<div class="favDrinksDiv">
+  <hr/>
+<!-- ***work on my drinks first, then we can add favorited drinks from API***  -->
+  <h1 id="favoriteDrinksH1">My Favorite Drinks</h1>
+  <mat-card class="favDrinkCard">
+      <mat-card-title class="favDrinkTitle">My Favorite Drink 
+        <!-- Card title will change once data binding is finished -->
+      </mat-card-title>
+      <mat-card-content>
+        <!-- input the ingredients and instructions -->
+        Ingredients
+        <br>
+        Instructions
+      </mat-card-content>
+    </mat-card>
+</div>
