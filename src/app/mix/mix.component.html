@@ -1,7 +1,25 @@
-<p>mix works!</p>
+<mat-form-field class="mixChipList">
+    <mat-chip-list #chipList aria-label="Mix Selection">
+        <mat-chip *ngFor="let m of mixIng" [selectable]="selectable"
+            [removable]="removable" (removed)="remove(mixIng)">
+        {{m.name}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="New mixIng"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+</mat-form-field>
 
 
-<input placeholder="drink name">
+
+
+
+
+
+<!-- <input placeholder="drink name">
 <div id="ingredients">
     <h2>Ingredients</h2>
     <div id="ingredient-add">
@@ -16,4 +34,4 @@
 <div id="instructions">
 <h2>Instructions</h2>
     <textarea placeholder="instructions"></textarea>
-</div>
+</div> -->
