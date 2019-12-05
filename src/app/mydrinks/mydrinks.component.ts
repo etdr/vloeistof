@@ -16,7 +16,7 @@ export class MydrinksComponent implements OnInit {
 
   ngOnInit() {
 //this is where we fetch all of the drinks
-// this.drinksService.getDrinks().subscribe(drinks=> this.myDrinks=drinks)
+    this.drinksService.getDrinks().subscribe(drinks=> this.myDrinks=drinks);
   }
 }
 

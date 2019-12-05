@@ -1,1 +1,13 @@
-<p>auth works!</p>
+
+
+<!-- <app-login *ngIf="loginToggle"></app-login>
+<app-signup *ngIf="!loginToggle"></app-signup> -->
+
+<form>
+  <input name="username" [(ngModel)]="username">
+  <input *ngIf="!loginToggle" name="email" [(ngModel)]="email">
+  <input type="password" name="password" [(ngModel)]="password">
+
+  <button type="button" (click)="loginToggle = !loginToggle">{{loginToggle ? "signup" : "login"}}</button>
+  <button type="button" (click)="submit()">submit</button>
+</form>
