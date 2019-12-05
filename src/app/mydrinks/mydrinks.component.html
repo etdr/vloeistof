@@ -1,13 +1,15 @@
 <div class="createdDrinksDiv">
-  <mat-card class="myDrinkCard">
-    <mat-card-title class="myDrinkTitle">My Created Drink 
-      <!-- Card title will change once data binding is finished -->
-    </mat-card-title>
+  <mat-card class="myDrinkCard" *ngFor="let d of myDrinks">
+    <mat-card-title class="myDrinkTitle">{{d.name}}</mat-card-title>
     <mat-card-content>
       <!-- input the ingredients and instructions -->
-      Ingredients
+      <h3>Ingredients</h3>
+      <ul>
+        <li *ngFor="let i of d.ingredients">{{i.amount}} <strong>{{i.name}}</strong></li>
+      </ul>
       <br>
-      Instructions
+      <h3>Instructions</h3>
+      <p>{{d.instructions}}</p>
     </mat-card-content>
   </mat-card>
 </div>

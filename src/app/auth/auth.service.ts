@@ -22,6 +22,8 @@ class Response {
 })
 export class AuthService {
 
+  token: string = (localStorage.getItem('token') || '');
+
   constructor(private http: HttpClient, private router: Router) { }
 
 
@@ -38,6 +40,7 @@ export class AuthService {
       }
     }), httpOptions).pipe(
       tap(res => localStorage.setItem("token", res.token)),
+      tap(res => this.token = res.token),
       finalize(() => this.router.navigateByUrl("/drinks"))
     );
   }
@@ -50,6 +53,7 @@ export class AuthService {
       }
     }, httpOptions).pipe(
       tap(res => localStorage.setItem("token", res.token)),
+      tap(res => this.token = res.token),
       finalize(() => this.router.navigateByUrl("/drinks"))
     );
   }

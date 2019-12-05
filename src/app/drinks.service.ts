@@ -3,11 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { AuthService } from './auth/auth.service';
 import { Drink, Ingredient, QIngredient } from './types';
 
 const BASEURL = "https://vloeistof-server.herokuapp.com/api";
 
-const httpOptions = {
+let httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': ''
@@ -22,11 +23,13 @@ export class DrinksService {
 
   drinks: Drink[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   
 
   getDrinks (): Observable<Drink[]> {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
+    
     return this.http.get<Drink[]>(BASEURL+"/drinks", httpOptions);
   }
 
