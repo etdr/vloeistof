@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { QIngredient, Drink, Ingredient, CDBDrink, CDBDrinksObject,
          CDBDrinkMin, CDBDrinkMinObject } from './types';
+import { of } from 'rxjs';
 
 const BASEURL = "https://www.thecocktaildb.com/api/json/v2/9973533/";
 
@@ -19,8 +20,8 @@ const BASEURL = "https://www.thecocktaildb.com/api/json/v2/9973533/";
 })
 export class SearchService {
 
-  drinkResults: Drink[];
-  ingResults: Ingredient[];
+  //drinkResults: Drink[];
+  //ingResults: Ingredient[];
   
 
   constructor(private http: HttpClient) { }
@@ -28,49 +29,20 @@ export class SearchService {
 
 
 
-  getDrinksByName (term: string): void {
+  getDrinksByName (term: string) {
     if (!term.trim()) {
-      this.drinkResults = [];
+      return of([]);
     }
-    this.http.get<CDBDrinksObject>(BASEURL+'search.php?s='+encodeURIComponent(term)).pipe(map(x => x.drinks))
-      .subscribe(cdos => {
-        this.drinkResults = [];
-        for (let cdo of cdos) {
-          let d = new Drink();
-          d.name = cdo.strDrink;
-          d.instructions = cdo.strInstructions;
-          d.thumbUrl = cdo.strDrinkThumb;
-          for (let i = 0; i < 15; i++) {
-            if (cdo['strIngredient'+(i+1).toString()]) {
-              d.ingredients.push({
-                amount: cdo['strMeasure'+(i+1).toString()],
-                name: cdo['strIngredient'+(i+1).toString()],
-                id: 0
-              })
-            }
-          }
-          this.drinkResults.push(d);
-        }
-      })
-    console.log(this.drinkResults);
+    return this.http.get<CDBDrinksObject>(BASEURL+'search.php?s='+encodeURIComponent(term)).pipe(map(x => x.drinks))
+
   }
 
-  getDrinksByIngredient (term: string): void {
+  getDrinksByIngredient (term: string) {
     if (!term.trim()) {
-      this.drinkResults = [];
+      return of ([]);
     }
-    this.http.get<CDBDrinkMinObject>(BASEURL+'filter.php?i='+encodeURIComponent(term)).pipe(map(x => x.drinks))
-      .subscribe(cdos => {
-        this.drinkResults = [];
-        for (let cdo of cdos) {
-          let d = new Drink();
-          d.name = cdo.strDrink;
-          d.thumbUrl = cdo.strDrinkThumb;
-          d.cDBId = parseInt(cdo.idDrink,10);
-          this.drinkResults.push(d)
-        }
-      });
-    console.log(this.drinkResults);
+    return this.http.get<CDBDrinkMinObject>(BASEURL+'filter.php?i='+encodeURIComponent(term)).pipe(map(x => x.drinks))
+      
   }
 
 }

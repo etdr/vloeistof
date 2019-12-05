@@ -10,4 +10,34 @@
 </div>
 
 
-  <app-search-results></app-search-results>
+  <mat-card *ngFor="let d of results">
+    <mat-card-title-group>
+        <mat-card-title>
+            {{d.name}}
+        </mat-card-title>
+        <img src={{d.thumbUrl}}>
+    </mat-card-title-group>
+    <mat-card-content>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Ingredients
+            </mat-expansion-panel-header>
+            <mat-list>
+                <mat-list-item *ngFor="let i of d.ingredients">
+                    <p>{{i.amount+"&ensp;"}}{{i.name}}</p>
+                </mat-list-item>
+            </mat-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Instructions
+            </mat-expansion-panel-header>
+            <!-- <mat-list>
+                <mat-list-item>
+                  {{}}
+                </mat-list-item>
+            </mat-list> -->
+            <p>{{d.instructions}}</p>
+        </mat-expansion-panel>
+    </mat-card-content>
+</mat-card>
