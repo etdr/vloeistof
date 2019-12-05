@@ -1,0 +1,16 @@
+div#masterdiv {
+  display: flex;
+  flex-direction: column;
+}
+
+router-outlet {
+  flex-grow: 1;
+}
+
+app-mydrinks {
+  flex-grow: 1;
+}
+
+app-footer {
+  flex-grow: 0;
+}
