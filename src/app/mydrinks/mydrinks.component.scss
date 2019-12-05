@@ -2,9 +2,9 @@ body {
   color: white;
 }
 
-p {
-  color: white;
-}
+// p {
+//   color: white;
+// }
 
 #createdDrinksH1 {
   font-family: var(--font-four);
@@ -12,23 +12,34 @@ p {
   color: var(--teal);
   margin: auto;
   // border: 1px solid white;
-  width: 20%;
+  width: 25%;
 }
 
 .myDrinkCard {
   // border: 1px solid blueviolet;
   width: 15%;
   margin: 20px;
-  
+  background-color: var(--teal);
+  border: 2px solid var(--plum);
+  border-radius: 10px;
+  font-family: var(--font-four);
+  color: var(--plum);
 }
 
 .myDrinkTitle {
-  border: 1px solid black;
+  // border: 1px solid black;
+  // font-family: var(--font-four);
+  // color: var(--darkPlum);
+
 }
 
+.myDrinksContent {
+  font-family: var(--font-four);
+  color: var(--plum);
+}
 
 hr {
-  color: var(--orange);
+  color: black;
 }
 
 #favoriteDrinksH1 {
@@ -37,7 +48,7 @@ hr {
   color: var(--teal);
   margin: auto;
   // border: 1px solid white;
-  width: 20%;
+  width: 25%;
 }
 
 .favDrinkCard {
