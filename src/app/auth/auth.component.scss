@@ -1,0 +1,36 @@
+.authenticationField {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggleButton {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.inputFields {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 250px;
+    align-items: space-between;
+}
+
+// input {
+//     width: 80px;
+// }
+
+// mat-form-field {
+//     border: solid black 1px;
+//     height: 75px;
+//     display: flex;
+//     flex-flow: column nowrap;
+//     justify-content: flex-end;
+//     align-items: center;
+//     align-content: flex-end;
+// }
