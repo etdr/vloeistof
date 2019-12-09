@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { Router } from '@angular/router';
 
 import { DrinksService } from '../drinks.service';
 import { QIngredient, Drink } from '../types';
 
 
 const MEASUREMENTS = ['oz ', 'ozs ', 'ounces ', 'part ', 'parts ', 'cl ', 'cls ', 'ml ', 'mls ', 'qt ', 'qts ',
-                      'liter ', 'L ', 'Ls ', 'l ', 'ls ', 'splash ', 'splashes ']
+                      'liter ', 'L ', 'Ls ', 'l ', 'ls ', 'splash ', 'splashes ', 'dash ', 'dashes ']
 
 
 @Component({
@@ -27,7 +28,8 @@ export class MixComponent {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   ings: QIngredient[] = [];
 
-  constructor (private drinksService: DrinksService) { }
+  constructor (private drinksService: DrinksService,
+    private router: Router) { }
 
 
   splitIngredient (qstr: string): string[] {
@@ -46,7 +48,7 @@ export class MixComponent {
 
 
 
-  add(event: MatChipInputEvent): void {
+  addIng(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
 
@@ -61,7 +63,11 @@ export class MixComponent {
     if (input) {
       input.value = '';
     }
+
+
   }
+
+
   remove(i: QIngredient): void {
     const index = this.ings.indexOf(i);
 
@@ -81,5 +87,7 @@ export class MixComponent {
       userId: 0,
       cDBId: 0
     }).subscribe(res => console.log(res));
+
+    this.router.navigate(['/drinks']);
   }
 } 

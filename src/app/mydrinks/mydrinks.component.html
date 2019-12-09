@@ -1,33 +1,21 @@
-<div class="createdDrinksDiv">
-  <h1 id="createdDrinksH1">My Created Drinks</h1>
-  <mat-card class="myDrinkCard" *ngFor="let d of myDrinks">
-    <mat-card-title class="myDrinkTitle">{{d.name}}</mat-card-title>
-    <mat-card-content class="myDrinksContent">
-      <!-- input the ingredients and instructions -->
-      <h3>Ingredients</h3>
-      <ul>
-        <li *ngFor="let i of d.ingredients">{{i.amount}} <strong>{{i.name}}</strong></li>
-      </ul>
-      <br>
-      <h3>Instructions</h3>
-      <p>{{d.instructions}}</p>
 
-    </mat-card-content>
-  </mat-card>
-</div>
-<div class="favDrinksDiv">
-  <hr/>
-<!-- ***work on my drinks first, then we can add favorited drinks from API***  -->
-  <h1 id="favoriteDrinksH1">My Favorite Drinks</h1>
-  <mat-card class="favDrinkCard">
-      <mat-card-title class="favDrinkTitle">My Favorite Drink 
-        <!-- Card title will change once data binding is finished -->
-      </mat-card-title>
-      <mat-card-content>
-        <!-- input the ingredients and instructions -->
-        Ingredients
-        <br>
-        Instructions
-      </mat-card-content>
-    </mat-card>
-</div>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let l of navLinks"
+     [routerLink]="l.path"
+     routerLinkActive="active" #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{l.label}}  
+  </a>
+</nav>
+
+<router-outlet></router-outlet>
+
+
+
+ 
+
+ 
+
+
+

@@ -5,13 +5,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatIconModule} from '@angular/material/icon';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CreditsComponent } from './credits/credits.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DrinksListComponent } from './mydrinks/drinkslist/drinkslist.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     FooterComponent,
     CreditsComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    DrinksListComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
