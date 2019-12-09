@@ -52,7 +52,7 @@
         <mat-chip-list #chipList aria-label="QIngredient selection">
                 <mat-chip *ngFor="let ingredient of ingredients" [selectable]="selectable"
                 [removable]="removable" (removed)="remove(ingredient)">
-                    {{ingredient.amount}}{{ingredient.name}}
+                    {{ingredient.amount}}&ensp;{{ingredient.name}}
                     <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                 </mat-chip>
             </mat-chip-list>

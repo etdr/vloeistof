@@ -1,0 +1,49 @@
+<h2>Modify drink</h2>
+<input value={{data.drink.name}}>
+
+<!-- ingredients -->
+
+<div class="ingredientsField">
+  <h2>Ingredients</h2>
+<div class="ingredientAddInputFields">
+<mat-form-field id="ingredient-add1">
+  <div id="amount">
+  <input matInput placeholder="Amount" 
+  [matChipInputFor]="chipList" [(ngModel)]="inputAmount"
+  >
+  </div>
+</mat-form-field>
+<mat-form-field id="ingredient-add2">
+  <div id="ingredient">
+  <input matInput placeholder="Ingredient" 
+  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+  [matChipInputAddOnBlur]="addOnBlur"
+  [matChipInputFor]="chipList" [(ngModel)]="inputIngredient"
+  (matChipInputTokenEnd)="addIng($event)">
+  </div>  
+</mat-form-field>
+</div>
+
+<mat-chip-list #chipList aria-label="QIngredient selection">
+      <mat-chip *ngFor="let ingredient of data.drink.ingredients" [selectable]="selectable"
+      [removable]="removable" (removed)="remove(ingredient)">
+          {{ingredient.amount}}&ensp;{{ingredient.name}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+  </mat-chip-list>
+
+</div>
+
+<!-- instructions -->
+
+<div class="instructionsField">
+  <h2>Instructions</h2>
+  <mat-form-field>
+      <textarea matInput placeholder="Instructions On How To Make This Drink" [(ngModel)]="data.drink.instructions"></textarea>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">cancel</button>
+  <button mat-button [mat-dialog-close]="data.drink" cdkFocusInitial>OK</button>
+</div>
