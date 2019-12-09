@@ -26,6 +26,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CreditsComponent } from './credits/credits.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
