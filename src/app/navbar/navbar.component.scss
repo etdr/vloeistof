@@ -94,3 +94,15 @@ li a {
 .active-link {
   border-bottom: solid var(--teal) 8px;
 }
+
+#logoutButton {
+  background-color: var(--plum);
+  color: var(--orange);
+  height: 50px;
+  margin-top: 14px;
+  font-size: 20px;
+  font-family: var(--font-two);
+  margin-left: 10px;
+  border: 3px solid var(--orange);
+  border-radius: 10px;
+}

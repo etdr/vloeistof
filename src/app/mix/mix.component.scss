@@ -32,6 +32,7 @@
 mat-form-field {
     min-width: 25vw;
     text-align: center;
+    font-family: var(--font-four);
 }
 
 textarea {
@@ -41,29 +42,44 @@ textarea {
 }
 
 ::ng-deep .mat-form-field-underline {
-    background-color: #50d0fb !important;
+    background-color: var(--teal) !important;
   }
 
   ::ng-deep .mat-form-field-label {
-    color: #50d0fb !important;
+    color: var(--teal) !important;
   }
 
   ::ng-deep .mat-form-field.mat-focused .mat-form-field-outline {
-    color: #50d0fb !important;
+    color: var(--teal) !important;
   }
 
   ::ng-deep .mat-form-field .mat-form-field-outline {
-    color: #50d0fb !important;
+    color: var(--teal) !important;
   }
 
   ::ng-deep .mat-form-field .mat-input {
-    color: #50d0fb !important;
+    color: var(--teal) !important;
   }
 
   input {
       color: white;
+      font-family: var(--font-four);
   }
 
   h2 {
-      color: #50d0fb;
+      color: var(--lime);
+      font-family: var(--font-two);
+  }
+
+  #mixButton {
+    background-color: var(--darkPlum);
+    color: var(--lime);
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    font-family: var(--font-two);
+  }
+
+  textarea {
+    color: white;
+    font-family: var(--font-four);
   }
