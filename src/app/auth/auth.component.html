@@ -3,11 +3,32 @@
 <!-- <app-login *ngIf="loginToggle"></app-login>
 <app-signup *ngIf="!loginToggle"></app-signup> -->
 
-<form>
-  <input name="username" [(ngModel)]="username">
-  <input *ngIf="!loginToggle" name="email" [(ngModel)]="email">
-  <input type="password" name="password" [(ngModel)]="password">
 
-  <button type="button" (click)="loginToggle = !loginToggle">{{loginToggle ? "signup" : "login"}}</button>
-  <button type="button" (click)="submit()">submit</button>
-</form>
+<div class="authenticationField">
+  <h2>Create A Vloeistof Account</h2>
+  <form class="inputFields">
+    <div class="userInput">
+      <mat-form-field class="userClass">
+        <input matInput type="text" placeholder="Username" name="username" [(ngModel)]="username">
+      </mat-form-field>
+    </div>
+    <div class="emailInput">
+      <mat-form-field *ngIf="!loginToggle">
+        <input matInput type="email" placeholder="Email" *ngIf="!loginToggle" name="email" [(ngModel)]="email">
+      </mat-form-field>
+    </div>
+    <div class="passwordInput">
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="password">
+      </mat-form-field>
+    </div>
+  </form>
+
+    <div class="signupButton">
+      <button mat-raised-button type="button" (click)="submit()">Signup</button>
+    </div>
+    <div class="toggleButton">
+      <p>Already Have An Account?</p>
+      <button mat-raised-button type="button" (click)="loginToggle = !loginToggle">{{loginToggle ? "signup" : "login"}}</button>
+    </div>
+</div>
