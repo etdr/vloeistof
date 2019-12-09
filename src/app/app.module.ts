@@ -28,6 +28,7 @@ import { SearchResultsComponent } from './search/search-results/search-results.c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrinksListComponent } from './mydrinks/drinkslist/drinkslist.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
