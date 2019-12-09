@@ -67,6 +67,19 @@ export class DrinksListComponent implements OnInit {
     })
   }
 
+  openConfirmDialog(drinkid) {
+    const dRef = this.dialog.open(ConfirmDeleteDialog, {
+      width: '600px'
+    });
+
+    dRef.afterClosed().subscribe(() => {
+      // actually delete drink here
+      this.drinksService.deleteDrink(drinkid)
+        .subscribe(() => undefined)
+
+    })
+  }
+
 
 }
 
@@ -122,4 +135,22 @@ export class ModifyDrinkDialog {
     }
 
   }
+}
+
+
+
+@Component({
+  selector: 'confirm-delete-dialog',
+  templateUrl: 'confirm-delete.html'
+})
+export class ConfirmDeleteDialog {
+
+  constructor(public dRef: MatDialogRef<ConfirmDeleteDialog>) { }
+
+  onNoClick() {
+    this.dRef.close()
+  }
+
+  
+
 }

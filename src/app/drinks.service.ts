@@ -63,13 +63,13 @@ export class DrinksService {
 
   modifyDrink (drink: Drink): Observable<number> {
     httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    return this.http.put<number>(BASEURL+'/'+drink.id, {drink}, httpOptions)
+    return this.http.put<number>(BASEURL+'/'+drink.id.toString(), {drink}, httpOptions)
   }
 
 
   deleteDrink (drinkId: number): Observable<number> {
     httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    return this.http.delete<number>(BASEURL+'/'+drinkId, httpOptions)
+    return this.http.delete<number>(BASEURL+'/'+drinkId.toString(), httpOptions)
   }
 
 }

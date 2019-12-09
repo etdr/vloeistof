@@ -27,7 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CreditsComponent } from './credits/credits.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DrinksListComponent, ModifyDrinkDialog } from './mydrinks/drinkslist/drinkslist.component';
+import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './mydrinks/drinkslist/drinkslist.component';
 
 
 @NgModule({
@@ -44,7 +44,8 @@ import { DrinksListComponent, ModifyDrinkDialog } from './mydrinks/drinkslist/dr
     CreditsComponent,
     SearchResultsComponent,
     DrinksListComponent,
-    ModifyDrinkDialog
+    ModifyDrinkDialog,
+    ConfirmDeleteDialog
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,8 @@ import { DrinksListComponent, ModifyDrinkDialog } from './mydrinks/drinkslist/dr
     MatDialogModule
   ],
   entryComponents: [
-    ModifyDrinkDialog
+    ModifyDrinkDialog,
+    ConfirmDeleteDialog
   ],
   providers: [],
   bootstrap: [AppComponent]

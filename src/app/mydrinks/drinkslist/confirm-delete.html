@@ -1,0 +1,6 @@
+<h3>Are you sure you want to delete this drink?</h3>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">cancel</button>
+  <button mat-button [mat-dialog-close]="undefined" cdkFocusInitial>delete</button>
+</div>
