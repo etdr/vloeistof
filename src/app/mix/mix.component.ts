@@ -15,10 +15,75 @@ const MEASUREMENTS = ['oz ', 'ozs ', 'ounces ', 'part ', 'parts ', 'cl ', 'cls '
   templateUrl: './mix.component.html',
   styleUrls: ['./mix.component.scss']
 })
+export class MixComponent implements OnInit {
+
+  drinkName: string = "";
+  instructions: string = "";
+
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  ingredients: QIngredient[] = [];
+
+  inputAmount: string = "";
+  inputIngredient: string = "";
+
+
+  constructor(private drinksService: DrinksService) { }
+
+  ngOnInit() {
+  }
+
+
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    if ((value || '').trim()) {
+      this.ingredients.push({
+        id: 0,
+        amount: this.inputAmount,
+        name: this.inputIngredient
+      })
+    }
+
+    if (input) {
+      input.value='';
+      this.inputAmount= '';
+    }
+  }
+  
+  remove(ingredient: QIngredient): void {
+    const index = this.ingredients.indexOf(ingredient);
+    
+    if (index >= 0) {
+      this.ingredients.splice(index, 1);
+    }
+
+  }
+
+  addDrink () {
+    this.drinksService.addDrink({
+      name: this.drinkName,
+      id: 0,
+      ingredients: this.ingredients,
+      instructions: this.instructions,
+      thumbUrl: '',
+      userId: 0,
+      cDBId: 0
+    }).subscribe(res => console.log(res));
+  }
+
+}
+
+
+
 // export class MixComponent {
 
-//   drinkName: string = "";
-//   instructions: string = "";
+  // drinkName: string = "";
+  // instructions: string = "";
 
 //   visible = true;
 //   selectable = true;
@@ -71,63 +136,15 @@ const MEASUREMENTS = ['oz ', 'ozs ', 'ounces ', 'part ', 'parts ', 'cl ', 'cls '
 //   }
 
 
-//   addDrink () {
-//     this.drinksService.addDrink({
-//       name: this.drinkName,
-//       id: 0,
-//       ingredients: this.ings,
-//       instructions: this.instructions,
-//       thumbUrl: '',
-//       userId: 0,
-//       cDBId: 0
-//     }).subscribe(res => console.log(res));
-//   }
+  // addDrink () {
+  //   this.drinksService.addDrink({
+  //     name: this.drinkName,
+  //     id: 0,
+  //     ingredients: this.ings,
+  //     instructions: this.instructions,
+  //     thumbUrl: '',
+  //     userId: 0,
+  //     cDBId: 0
+  //   }).subscribe(res => console.log(res));
+  // }
 // } 
-
-
-export class MixComponent implements OnInit {
-  visible = true;
-  selectable = true;
-  removable = true;
-  addOnBlur = true;
-  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  ingredients: QIngredient[] = [];
-
-  inputAmount: string = "";
-  inputIngredient: string = "";
-
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-
-    if ((value || '').trim()) {
-      this.ingredients.push({
-        id: 0,
-        amount: this.inputAmount,
-        name: this.inputIngredient
-      })
-    }
-
-    if (input) {
-      input.value='';
-      this.inputAmount= '';
-    }
-  }
-  
-  remove(ingredient: QIngredient): void {
-    const index = this.ingredients.indexOf(ingredient);
-    
-    if (index >= 0) {
-      this.ingredients.splice(index, 1);
-    }
-
-  }
-
-}

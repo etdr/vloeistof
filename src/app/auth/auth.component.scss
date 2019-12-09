@@ -21,16 +21,31 @@
     align-items: space-between;
 }
 
-// input {
-//     width: 80px;
-// }
+mat-form-field {
+    min-width: 25vw;
+    text-align: center;
+}
 
-// mat-form-field {
-//     border: solid black 1px;
-//     height: 75px;
-//     display: flex;
-//     flex-flow: column nowrap;
-//     justify-content: flex-end;
-//     align-items: center;
-//     align-content: flex-end;
-// }
+::ng-deep .mat-form-field-underline {
+    background-color: #50d0fb !important;
+}
+
+::ng-deep .mat-form-field-label {
+    color: #50d0fb !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-outline {
+    color: #50d0fb !important;
+}
+
+::ng-deep .mat-form-field .mat-form-field-outline {
+    color: #50d0fb !important;
+}
+
+::ng-deep .mat-form-field .mat-input {
+    color: #50d0fb !important;
+}
+
+input {
+    color: white;
+}
