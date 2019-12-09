@@ -15,6 +15,11 @@ const httpOptions = {
 
 class Response {
   token: string;
+  user: {
+    id: number,
+    username: string,
+    email: string
+  }
 }
 
 @Injectable({
@@ -23,6 +28,9 @@ class Response {
 export class AuthService {
 
   token: string = (localStorage.getItem('token') || '');
+  admin: boolean = (localStorage.getItem('admin') == 'true' || false);
+  userId: number = localStorage.getItem('userId') == null ? 0 : parseInt(localStorage.getItem('userId'), 10);
+  //userId: number | undefined = localStorage.getItem('userId');
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -41,6 +49,8 @@ export class AuthService {
     }), httpOptions).pipe(
       tap(res => localStorage.setItem("token", res.token)),
       tap(res => this.token = res.token),
+      tap(res => localStorage.setItem("userId", res.user.id.toString())),
+      tap(res => this.userId = res.user.id),
       finalize(() => this.router.navigateByUrl("/drinks"))
     );
   }
@@ -54,12 +64,16 @@ export class AuthService {
     }, httpOptions).pipe(
       tap(res => localStorage.setItem("token", res.token)),
       tap(res => this.token = res.token),
+      tap(res => localStorage.setItem("userId", res.user.id.toString())),
+      tap(res => this.userId = res.user.id),
       finalize(() => this.router.navigateByUrl("/drinks"))
     );
   }
 
   logout () {
     localStorage.removeItem("token");
+    localStorage.removeItem("admin");
+    localStorage.removeItem("userId");
     this.router.navigateByUrl("/login");
   }
 

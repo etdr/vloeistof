@@ -1,3 +1,4 @@
+
 body {
   // color: white;
 }
@@ -41,28 +42,20 @@ body {
   // font-family: var(--font-four);
   // color: var(--darkPlum);
 
+
+nav {
+  background: var(--orange);
+  color: var(--darkPlum);
+  
+  a {
+    font-family: var(--font-two);
+    font-weight: bold;
+    color: var(--darkPlum);
+    font-size: 1.2rem;
+
+    &:active {
+      border-bottom: solid var(--darkPlum) 5px;
+    }
+  }
 }
 
-.myDrinksContent {
-  font-family: var(--font-four);
-  color: var(--plum);
-}
-
-hr {
-  color: black;
-}
-
-#favoriteDrinksH1 {
-  font-family: var(--font-four);
-  font-weight: 300;
-  color: var(--teal);
-  margin: auto;
-  // border: 1px solid white;
-  width: 25%;
-}
-
-.favDrinkCard {
-  width: 15%;
-  margin: 20px;
-
-}

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { SearchService } from '../search.service';
+import { DrinksService } from '../drinks.service';
 import { Drink } from '../types';
 
 @Component({
@@ -13,11 +15,12 @@ export class SearchComponent implements OnInit {
   term: string = "";
   results: Drink[] = [];
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService,
+              private drinksService: DrinksService,
+              private router: Router) { }
 
   ngOnInit() {
   }
-
 
   searchByName () {
     this.searchService.getDrinksByName(this.term)
@@ -38,6 +41,7 @@ export class SearchComponent implements OnInit {
               })
             }
           }
+          d.cDBId = parseInt(cdo.idDrink, 10)
           drinkResults.push(d);
         }
         this.results = drinkResults; 
@@ -58,6 +62,11 @@ export class SearchComponent implements OnInit {
         }
       
     });
+  }
+
+  addDrink (drink) {
+    this.drinksService.addDrink(drink).subscribe(() => undefined);
+    this.router.navigateByUrl('/drinks/my');
   }
 
 }

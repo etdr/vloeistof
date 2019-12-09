@@ -8,10 +8,18 @@ import { CreditsComponent } from './credits/credits.component';
 import { AuthComponent } from './auth/auth.component';
 
 import { AuthGuard } from './auth/auth.guard';
+import { DrinksListComponent } from './mydrinks/drinkslist/drinkslist.component';
 
 
 const routes: Routes = [
-  { path: 'drinks', component: MydrinksComponent, canActivate: [AuthGuard] },
+  { path: 'drinks', component: MydrinksComponent, canActivate: [AuthGuard],
+    children: [
+      { path: 'my', component: DrinksListComponent },
+      { path: 'created', component: DrinksListComponent },
+      { path: 'api', component: DrinksListComponent },
+      { path: 'favorite', component: DrinksListComponent },
+      { path: 'all', component: DrinksListComponent }
+    ]},
   { path: 'mix', component: MixComponent, canActivate: [AuthGuard] },
   { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
   { path: 'credits', component: CreditsComponent },

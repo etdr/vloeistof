@@ -10,13 +10,21 @@ import { Drink } from '../types';
 })
 export class MydrinksComponent implements OnInit {
 
-  myDrinks: Drink[] = [];
+  //myDrinks: Drink[] = [];
+
+  navLinks = [
+    {label: 'my', path:'./my'},
+    {label: 'created', path:'./created'},
+    {label: 'api', path:'./api'},
+    {label: 'favorite', path:'./favorite'},
+    {label: 'all', path:'./all'}
+  ];
 
   constructor(private drinksService: DrinksService) { }
 
   ngOnInit() {
 //this is where we fetch all of the drinks
-    this.drinksService.getDrinks().subscribe(drinks=> this.myDrinks=drinks);
+    //this.drinksService.getDrinks().subscribe(drinks=> this.myDrinks=drinks);
   }
 }
 
