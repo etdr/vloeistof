@@ -12,10 +12,18 @@
       <p>{{d.instructions}}</p>
 
       <!-- <button mat-raised-button (click)="openDialog(d)">edit drink</button> -->
-<button mat-raised-button>
-      <mat-icon (click)="openDialog(d)">edit</mat-icon>
-</button>
-<button mat-raised-button (click)="openConfirmDialog(d.id)">delete drink</button>
+
+      <div id="edit-buttons" *ngIf="d.userId == authService.userId || authService.admin">
+
+        <button mat-raised-button (click)="favoriteDrink(d)">
+          toggle favorite (currently {{d.favorite ? 'true' : 'false'}})
+        </button>
+
+        <button mat-raised-button>
+          <mat-icon (click)="openDialog(d)">edit</mat-icon>
+        </button>
+        <button mat-raised-button (click)="openConfirmDialog(d.id)">delete drink</button>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

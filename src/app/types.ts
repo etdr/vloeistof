@@ -15,6 +15,7 @@ export class Drink {
   userId: number;
   thumbUrl: string;
   cDBId: number;
+  favorite: boolean;
 
   // constructor (i:number = 0, n:string = "", ings:QIngredient[] = [], instrs:string = "", uid:number = 0, tU:string = "", cId:number = 0) {
   //   this.id = i;

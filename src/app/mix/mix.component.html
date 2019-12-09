@@ -67,6 +67,11 @@
         </mat-form-field>
     </div>
 
+    <div class="favoriting">
+        <h3>favorite?</h3>
+        <input type="checkbox" [checked]="favorite" (change)="favorite = !favorite" name="favorite-checkbox">
+    </div>
+
     <div class="addDrinkButton">
         <button mat-raised-button type="button" (click)="addDrink()">Save & Add This Drink</button>
     </div>

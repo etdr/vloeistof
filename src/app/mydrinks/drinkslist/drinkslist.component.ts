@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { MatChipInputEvent } from '@angular/material/chips';
 
 import { DrinksService } from '../../drinks.service';
+import { AuthService } from '../../auth/auth.service';
 import { Drink, QIngredient } from 'src/app/types';
 
 export interface DialogData {
@@ -22,7 +23,8 @@ export class DrinksListComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private drinksService: DrinksService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.route.url
@@ -43,6 +45,21 @@ export class DrinksListComponent implements OnInit {
       });
   }
 
+  favoriteDrink(drink: Drink) {
+    this.drinksService.modifyDrink({
+      id: drink.id,
+      userId: drink.userId,
+      name: drink.name,
+      ingredients: drink.ingredients,
+      instructions: drink.instructions,
+      thumbUrl: drink.thumbUrl,
+      cDBId: drink.cDBId,
+      favorite: !drink.favorite
+    }).subscribe(() => {
+      drink.favorite = !drink.favorite
+    });
+  }
+
 
   openDialog(drink) {
     const dRef = this.dialog.open(ModifyDrinkDialog, {
@@ -60,6 +77,7 @@ export class DrinksListComponent implements OnInit {
         instructions: res.instructions,
         thumbUrl: res.thumbUrl,
         cDBId: res.cDBId,
+        favorite: res.favorite,
         id: res.id,
         userId: res.userId
       }).subscribe(() => undefined)
@@ -75,7 +93,9 @@ export class DrinksListComponent implements OnInit {
     dRef.afterClosed().subscribe(() => {
       // actually delete drink here
       this.drinksService.deleteDrink(drinkid)
-        .subscribe(() => undefined)
+        .subscribe(() => undefined);
+      
+      this.drinks = this.drinks.filter(d => d.id !== drinkid);
 
     })
   }

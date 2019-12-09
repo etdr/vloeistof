@@ -43,6 +43,11 @@
   </mat-form-field>
 </div>
 
+<div class="favoriting">
+  <h3>Favorite?</h3>
+  <input type="checkbox" [checked]="data.drink.favorite" (click)="data.drink.favorite = !data.drink.favorite">
+</div>
+
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">cancel</button>
   <button mat-button [mat-dialog-close]="data.drink" cdkFocusInitial>OK</button>
