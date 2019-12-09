@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CreditsComponent } from './credits/credits.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DrinksListComponent } from './mydrinks/drinkslist/drinkslist.component';
+import { DrinksListComponent, ModifyDrinkDialog } from './mydrinks/drinkslist/drinkslist.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { DrinksListComponent } from './mydrinks/drinkslist/drinkslist.component'
     FooterComponent,
     CreditsComponent,
     SearchResultsComponent,
-    DrinksListComponent
+    DrinksListComponent,
+    ModifyDrinkDialog
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,11 @@ import { DrinksListComponent } from './mydrinks/drinkslist/drinkslist.component'
     BrowserAnimationsModule,
     MatChipsModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ModifyDrinkDialog
   ],
   providers: [],
   bootstrap: [AppComponent]

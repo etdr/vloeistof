@@ -63,7 +63,7 @@ export class DrinksService {
 
   modifyDrink (drink: Drink): Observable<number> {
     httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    return this.http.put<number>(BASEURL+'/'+drink.id, drink, httpOptions)
+    return this.http.put<number>(BASEURL+'/'+drink.id, {drink}, httpOptions)
   }
 
 
