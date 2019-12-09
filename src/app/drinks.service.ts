@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
 import { Drink, Ingredient, QIngredient } from './types';
 
-const BASEURL = "https://vloeistof-server.herokuapp.com/api";
+const BASEURL = "https://vloeistof-server.herokuapp.com/api/drinks";
 
 let httpOptions = {
   headers: new HttpHeaders({
@@ -26,31 +26,50 @@ export class DrinksService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   
-
-  getDrinks (): Observable<Drink[]> {
+  getMyDrinks() {
     httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    
-    return this.http.get<Drink[]>(BASEURL+"/drinks", httpOptions);
+    return this.http.get<Drink[]>(BASEURL+"/user/"+this.authService.userId.toString(), httpOptions);
   }
+
+  getCreatedDrinks() {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
+    return this.http.get<Drink[]>(BASEURL+"/user/"+this.authService.userId.toString()+"/created", httpOptions);
+  }
+
+  getAPIDrinks() {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
+    return this.http.get<Drink[]>(BASEURL+"/user/"+this.authService.userId.toString()+"/api", httpOptions);
+  }
+
+  getFavoriteDrinks() {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
+    return this.http.get<Drink[]>(BASEURL+"/user/"+this.authService.userId.toString()+"/favorite", httpOptions);
+  }
+
+  getAllDrinks (): Observable<Drink[]> {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
+    return this.http.get<Drink[]>(BASEURL, httpOptions);
+  }
+
 
 
   
   addDrink (drink: Drink): Observable<Drink> {
     httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    return this.http.post<Drink>(BASEURL+"/drinks/new", {drink}, httpOptions)
+    return this.http.post<Drink>(BASEURL+"/new", {drink}, httpOptions)
 
   }
 
 
   modifyDrink (drink: Drink): Observable<number> {
     httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    return this.http.put<number>(BASEURL+'/drinks/'+drink.id, drink, httpOptions)
+    return this.http.put<number>(BASEURL+'/'+drink.id, drink, httpOptions)
   }
 
 
   deleteDrink (drinkId: number): Observable<number> {
     httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    return this.http.delete<number>(BASEURL+'/drinks/'+drinkId, httpOptions)
+    return this.http.delete<number>(BASEURL+'/'+drinkId, httpOptions)
   }
 
 }

@@ -1,14 +1,17 @@
-<div>
-  <mat-button-toggle-group aria-labelledby="searchKind">
-    <mat-button-toggle>Name</mat-button-toggle>
-    <mat-button-toggle>Ingredient</mat-button-toggle>
-  </mat-button-toggle-group>
+<div class="searchField">
+    <div class="searchToggle">
+        <mat-button-toggle-group aria-labelledby="searchKind">
+            <mat-button-toggle>Name</mat-button-toggle>
+            <mat-button-toggle>Ingredient</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div class="searchInput">
+        <input matInput type="search" id="searchbox" placeholder="Enter Your Search Term Here" [(ngModel)]="term">
+    </div>
+    <div class="searchButton">
+        <button mat-raised-button (click)="searchByName()">search</button>
+    </div>
 </div>
-<div id="searchdiv">
-  <input matInput type="search" id="searchbox" [(ngModel)]="term">
-  <button mat-button (click)="searchByName()">search</button>
-</div>
-
 
   <mat-card *ngFor="let d of results">
     <mat-card-title-group>
@@ -39,5 +42,6 @@
             </mat-list> -->
             <p>{{d.instructions}}</p>
         </mat-expansion-panel>
+        <button mat-button (click)="addDrink(d)">add to my drinks</button>
     </mat-card-content>
 </mat-card>

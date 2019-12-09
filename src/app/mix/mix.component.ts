@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { Router } from '@angular/router';
 
 import { DrinksService } from '../drinks.service';
 import { QIngredient, Drink } from '../types';
 
 
 const MEASUREMENTS = ['oz ', 'ozs ', 'ounces ', 'part ', 'parts ', 'cl ', 'cls ', 'ml ', 'mls ', 'qt ', 'qts ',
-                      'liter ', 'L ', 'Ls ', 'l ', 'ls ', 'splash ', 'splashes ']
+                      'liter ', 'L ', 'Ls ', 'l ', 'ls ', 'splash ', 'splashes ', 'dash ', 'dashes ']
 
 
 @Component({
@@ -31,13 +32,14 @@ export class MixComponent implements OnInit {
   inputIngredient: string = "";
 
 
-  constructor(private drinksService: DrinksService) { }
+  constructor (private drinksService: DrinksService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
 
-  add(event: MatChipInputEvent): void {
+  addIng(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
 
@@ -53,6 +55,8 @@ export class MixComponent implements OnInit {
       input.value='';
       this.inputAmount= '';
     }
+
+
   }
   
   remove(ingredient: QIngredient): void {
@@ -74,6 +78,8 @@ export class MixComponent implements OnInit {
       userId: 0,
       cDBId: 0
     }).subscribe(res => console.log(res));
+
+    this.router.navigate(['/drinks']);
   }
 
 }
