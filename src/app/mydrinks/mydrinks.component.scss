@@ -41,6 +41,7 @@ body {
   // border: 1px solid black;
   // font-family: var(--font-four);
   // color: var(--darkPlum);
+}
 
 
 nav {
@@ -58,4 +59,17 @@ nav {
     }
   }
 }
+
+
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: var(--darkPlum);
 }
+
+.tabsNav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: space-between;
+  background: var(--orange); 
+}
+
