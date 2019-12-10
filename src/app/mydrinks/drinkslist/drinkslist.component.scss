@@ -6,6 +6,12 @@ body {
 //   color: white;
 // }
 
+.createdDrinksDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 #createdDrinksH1 {
   font-family: var(--font-four);
   font-weight: 300;
@@ -24,6 +30,7 @@ body {
   border-radius: 10px;
   font-family: var(--font-four);
   color: var(--plum);
+  
 }
 
 .myDrinkTitle {
