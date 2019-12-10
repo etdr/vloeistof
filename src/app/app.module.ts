@@ -29,6 +29,8 @@ import { SearchResultsComponent } from './search/search-results/search-results.c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './mydrinks/drinkslist/drinkslist.component';
 import { AdminComponent } from './admin/admin.component';
+import { PostComponent } from './mydrinks/drinkslist/postbox/post.component';
+import { PostboxComponent } from './mydrinks/drinkslist/postbox/postbox.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { AdminComponent } from './admin/admin.component';
     DrinksListComponent,
     ModifyDrinkDialog,
     ConfirmDeleteDialog,
-    AdminComponent
+    AdminComponent,
+    PostComponent,
+    PostboxComponent
   ],
   imports: [
     BrowserModule,

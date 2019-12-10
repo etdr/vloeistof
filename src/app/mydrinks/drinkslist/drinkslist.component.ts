@@ -56,7 +56,7 @@ export class DrinksListComponent implements OnInit {
       cDBId: drink.cDBId,
       favorite: !drink.favorite
     }).subscribe(() => {
-      drink.favorite = !drink.favorite
+      drink.favorite = !drink.favorite;
     });
   }
 
@@ -70,17 +70,20 @@ export class DrinksListComponent implements OnInit {
     });
 
     dRef.afterClosed().subscribe(res => {
+      console.log(res);
       // actually modify drink here
-      this.drinksService.modifyDrink({
-        name: res.name,
-        ingredients: res.ingredients,
-        instructions: res.instructions,
-        thumbUrl: res.thumbUrl,
-        cDBId: res.cDBId,
-        favorite: res.favorite,
-        id: res.id,
-        userId: res.userId
-      }).subscribe(() => undefined)
+      if (res) {
+        this.drinksService.modifyDrink({
+          name: res.name,
+          ingredients: res.ingredients,
+          instructions: res.instructions,
+          thumbUrl: res.thumbUrl,
+          cDBId: res.cDBId,
+          favorite: res.favorite,
+          id: res.id,
+          userId: res.userId
+        }).subscribe((res) => console.log(res))
+      }
 
     })
   }
@@ -154,6 +157,12 @@ export class ModifyDrinkDialog {
       this.data.drink.ingredients.splice(index, 1);
     }
 
+  }
+
+  flipFavorite (drink) {
+    console.log(drink.favorite);
+    drink.favorite = !drink.favorite;
+    console.log(drink.favorite);
   }
 }
 

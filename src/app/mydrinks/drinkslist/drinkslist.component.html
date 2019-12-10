@@ -24,6 +24,9 @@
         </button>
         <button mat-raised-button (click)="openConfirmDialog(d.id)">delete drink</button>
       </div>
+
+      <app-postbox [drinkId]="d.id"></app-postbox>
+
     </mat-card-content>
   </mat-card>
 </div>

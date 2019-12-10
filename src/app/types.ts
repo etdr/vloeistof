@@ -89,6 +89,18 @@ export interface CDBDrinkMin {
 }
 
 
+// posts
+
+export class Post {
+  id: number;
+  title: string;
+  content: string;
+  drinkId: number;
+  userId: number;
+}
+
+
+
 
 // user types
 

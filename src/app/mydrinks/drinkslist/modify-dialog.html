@@ -1,5 +1,5 @@
 <h2>Modify drink</h2>
-<input value={{data.drink.name}}>
+<input [(ngModel)]="data.drink.name">
 
 <!-- ingredients -->
 
@@ -45,7 +45,7 @@
 
 <div class="favoriting">
   <h3>Favorite?</h3>
-  <input type="checkbox" [checked]="data.drink.favorite" (click)="data.drink.favorite = !data.drink.favorite">
+  <input type="checkbox" [checked]="data.drink.favorite" (click)="flipFavorite(data.drink)">
 </div>
 
 <div mat-dialog-actions>
