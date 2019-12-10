@@ -18,7 +18,8 @@ class Response {
   user: {
     id: number,
     username: string,
-    email: string
+    email: string,
+    admin: boolean
   }
 }
 
@@ -28,7 +29,7 @@ class Response {
 export class AuthService {
 
   token: string = (localStorage.getItem('token') || '');
-  admin: boolean = (localStorage.getItem('admin') == 'true' || false);
+  admin: boolean = (localStorage.getItem('admin') == 'true');
   userId: number = localStorage.getItem('userId') == null ? 0 : parseInt(localStorage.getItem('userId'), 10);
   //userId: number | undefined = localStorage.getItem('userId');
 
@@ -51,6 +52,8 @@ export class AuthService {
       tap(res => this.token = res.token),
       tap(res => localStorage.setItem("userId", res.user.id.toString())),
       tap(res => this.userId = res.user.id),
+      tap(res => localStorage.setItem("admin", res.user.admin ? "true" : "false")),
+      tap(res => this.admin = res.user.admin),
       finalize(() => this.router.navigateByUrl("/drinks"))
     );
   }
@@ -66,6 +69,8 @@ export class AuthService {
       tap(res => this.token = res.token),
       tap(res => localStorage.setItem("userId", res.user.id.toString())),
       tap(res => this.userId = res.user.id),
+      tap(res => localStorage.setItem("admin", res.user.admin ? "true" : "false")),
+      tap(res => this.admin = res.user.admin),
       finalize(() => this.router.navigateByUrl("/drinks"))
     );
   }
@@ -74,6 +79,9 @@ export class AuthService {
     localStorage.removeItem("token");
     localStorage.removeItem("admin");
     localStorage.removeItem("userId");
+    this.token = '';
+    this.userId = 0;
+    this.admin = false;
     this.router.navigateByUrl("/login");
   }
 

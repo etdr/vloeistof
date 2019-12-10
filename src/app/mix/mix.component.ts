@@ -30,6 +30,8 @@ export class MixComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   ingredients: QIngredient[] = [];
 
+  favorite: boolean = false;
+
   inputAmount: string = "";
   inputIngredient: string = "";
 
@@ -78,7 +80,8 @@ export class MixComponent implements OnInit {
       instructions: this.instructions,
       thumbUrl: '',
       userId: 0,
-      cDBId: 0
+      cDBId: 0,
+      favorite: this.favorite
     }).subscribe(res => console.log(res));
 
     this.router.navigate(['/drinks']);
