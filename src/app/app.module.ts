@@ -28,6 +28,7 @@ import { CreditsComponent } from './credits/credits.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './mydrinks/drinkslist/drinkslist.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './m
     SearchResultsComponent,
     DrinksListComponent,
     ModifyDrinkDialog,
-    ConfirmDeleteDialog
+    ConfirmDeleteDialog,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
