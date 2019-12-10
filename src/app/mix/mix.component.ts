@@ -1,12 +1,16 @@
-import { Component, NgZone, ViewChild, OnInit } from '@angular/core';
+import { Component, NgZone, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import {take} from 'rxjs/operators';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
+import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 import { DrinksService } from '../drinks.service';
-import { QIngredient, Drink } from '../types';
+import { QIngredient, Drink, Ingredient } from '../types';
 
 
 const MEASUREMENTS = ['oz ', 'ozs ', 'ounces ', 'part ', 'parts ', 'cl ', 'cls ', 'ml ', 'mls ', 'qt ', 'qts ',
@@ -28,24 +32,36 @@ export class MixComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  ingredientCtrl = new FormControl();
+  filteredIngredients: Observable<string[]>;
   ingredients: QIngredient[] = [];
+  // ingredientSource: Ingredient[] = [];
+  fakeIngredients: string[] = ['gin', 'tequila', 'rum', 'whiskey', 'scotch', 'schnapps', 'lemon', 'lime', 'orange', 'peach', 'bitters',]
+
+  @ViewChild('ingredientsInput', {static: false}) ingredientsInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
   favorite: boolean = false;
 
   inputAmount: string = "";
   inputIngredient: string = "";
-
+  
 
   constructor (private drinksService: DrinksService,
-    private router: Router, private _ngZone: NgZone) { }
+    private router: Router, private _ngZone: NgZone) {
+      this.filteredIngredients = this.ingredientCtrl.valueChanges.pipe(
+        startWith(null),
+        map((ingredient: string | null) => ingredient ? this._filter(ingredient) : this.fakeIngredients.slice()));
+     }
 
   ngOnInit() {
+
   }
 
-
   addIng(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
+    if (!this.matAutocomplete.isOpen) {
+      const input = event.input;
+      const value = event.value;
 
     if ((value || '').trim()) {
       this.ingredients.push({
@@ -60,7 +76,9 @@ export class MixComponent implements OnInit {
       this.inputAmount= '';
     }
 
+    this.ingredientCtrl.setValue(null);
 
+  }
   }
   
   remove(ingredient: QIngredient): void {
@@ -69,8 +87,20 @@ export class MixComponent implements OnInit {
     if (index >= 0) {
       this.ingredients.splice(index, 1);
     }
-
   }
+
+  selected(event: MatAutocompleteSelectedEvent) : void {
+    // this.ingredients.push(event.option.viewValue);
+    this.ingredientsInput.nativeElement.value = '';
+    this.ingredientCtrl.setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.fakeIngredients.filter(ingredient => ingredient.toLowerCase().indexOf(filterValue) === 0);
+  }
+
 
   addDrink () {
     this.drinksService.addDrink({

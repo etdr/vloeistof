@@ -33,19 +33,27 @@
         <div class="ingredientAddInputFields">
     <mat-form-field id="ingredient-add1">
             <div id="amount">
-            <input matInput placeholder="Amount" 
-            [matChipInputFor]="chipList" [(ngModel)]="inputAmount"
-            >
+            <input matInput type="text" placeholder="Amount"
+            [matChipInputFor]="chipList"
+            [(ngModel)]="inputAmount">
             </div>
         </mat-form-field>
         <mat-form-field id="ingredient-add2">
             <div id="ingredient">
-            <input matInput placeholder="Ingredient" 
+            <input matInput placeholder="Ingredient"
+            #ingredientsInput
+            [formControl]="ingredientCtrl"
+            [matAutocomplete]="auto" 
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
             [matChipInputAddOnBlur]="addOnBlur"
             [matChipInputFor]="chipList" [(ngModel)]="inputIngredient"
             (matChipInputTokenEnd)="addIng($event)">
-            </div>  
+            </div>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                    <mat-option *ngFor="let ingredient of filteredIngredients | async" [value]="ingredient">
+                      {{ingredient}}
+                    </mat-option>
+                  </mat-autocomplete>
         </mat-form-field>
         </div>
         
