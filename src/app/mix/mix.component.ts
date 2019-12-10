@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, ViewChild, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import {take} from 'rxjs/operators';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 
@@ -33,7 +35,7 @@ export class MixComponent implements OnInit {
 
 
   constructor (private drinksService: DrinksService,
-    private router: Router) { }
+    private router: Router, private _ngZone: NgZone) { }
 
   ngOnInit() {
   }
@@ -80,6 +82,14 @@ export class MixComponent implements OnInit {
     }).subscribe(res => console.log(res));
 
     this.router.navigate(['/drinks']);
+  }
+
+  @ViewChild('autosize', {static: false}) autosize: CdkTextareaAutosize;
+
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this._ngZone.onStable.pipe(take(1))
+        .subscribe(() => this.autosize.resizeToFitContent(true));
   }
 
 }

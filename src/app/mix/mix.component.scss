@@ -29,13 +29,37 @@
     align-items: center;
 }
 
+.addDrinkButton {
+  padding-top: 20px;
+}
+
 mat-form-field {
-    min-width: 25vw;
-    text-align: center;
+    // min-width: 25vw;
+    // text-align: center;
+}
+
+#drinkName {
+  width: 25vw;
+  text-align: center;
+}
+
+#ingredient-add1 {
+  width: 15vw;
+  text-align: center;
+}
+
+#ingredient-add2 {
+  width: 15vw;
+  text-align: center;
+}
+
+#instructionsSize {
+  width: 25vw;
+  text-align: center;
 }
 
 textarea {
-    height: 100px;
+    // height: 100px;
     // border: solid black 1px;
     // border-radius: 10px 10px;
 }

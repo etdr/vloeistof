@@ -29,15 +29,29 @@ button {
     text-align: center;
 }
 
+
+
+mat-card {
+    width: 25vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
 mat-card-title-group {
-    width: 100px;
-    height:100px;
+    width: 25vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
-img {
-    z-index: 0;
-}
+// mat-card-image {
+//     z-index: 0;
+// }
 
-mat-card-title {
-    z-index: 1;
-}
+// mat-card-title {
+//     z-index: 1;
+// }

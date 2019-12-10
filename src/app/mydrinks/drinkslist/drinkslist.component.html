@@ -12,8 +12,8 @@
       <p>{{d.instructions}}</p>
 
       <!-- <button mat-raised-button (click)="openDialog(d)">edit drink</button> -->
-<button mat-raised-button>
-      <mat-icon (click)="openDialog(d)">edit</mat-icon>
+<button mat-raised-button (click)="openDialog(d)">
+      <mat-icon>edit</mat-icon>
 </button>
 <button mat-raised-button (click)="openConfirmDialog(d.id)">delete drink</button>
     </mat-card-content>

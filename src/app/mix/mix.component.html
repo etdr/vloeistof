@@ -2,7 +2,7 @@
 
     <div class="drinkNameField">
         <h2>Drink Name</h2>
-        <mat-form-field>
+        <mat-form-field id="drinkName">
             <!-- <mat-label>
                 Enter Your Drink Name Here
             </mat-label> -->
@@ -62,8 +62,13 @@
 
     <div class="instructionsField">
         <h2>Instructions</h2>
-        <mat-form-field>
-            <textarea matInput placeholder="Instructions On How To Make This Drink" [(ngModel)]="instructions"></textarea>
+        <mat-form-field id="instructionsSize">
+            <textarea matInput placeholder="Instructions On How To Make This Drink"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="10"
+            [(ngModel)]="instructions"></textarea>
         </mat-form-field>
     </div>
 

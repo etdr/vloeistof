@@ -3,6 +3,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    padding-bottom: 50px;
 }
 
 .toggleButton {
@@ -10,8 +11,20 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    padding-top: 40px;
 }
 
+p {
+    margin-bottom: 5px;
+    font-size: 9pt;
+    // letter-spacing: 2px;
+    word-spacing: 5px;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
 
 .inputFields {
     display: flex;
@@ -48,4 +61,9 @@ mat-form-field {
 
 input {
     color: white;
+}
+
+button {
+    width: 200px;
+    height: 50px;
 }

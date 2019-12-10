@@ -1,4 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, NgZone } from '@angular/core';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
+import {take} from 'rxjs/operators';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatChipInputEvent } from '@angular/material/chips';
@@ -46,7 +49,7 @@ export class DrinksListComponent implements OnInit {
 
   openDialog(drink) {
     const dRef = this.dialog.open(ModifyDrinkDialog, {
-      width: '600px',
+      width: '1000px',
       data: {
         drink
       }
@@ -87,7 +90,8 @@ export class DrinksListComponent implements OnInit {
 
 @Component({
   selector: 'modify-drink-dialog',
-  templateUrl: 'modify-dialog.html'
+  templateUrl: 'modify-dialog.html',
+  styleUrls: ['./drinkslist.component.scss']
 })
 export class ModifyDrinkDialog {
 
@@ -95,10 +99,13 @@ export class ModifyDrinkDialog {
   inputAmount: string;
   inputIngredient: string;
 
+  visible = true;
   selectable = true;
   removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor(public dRef: MatDialogRef<ModifyDrinkDialog>,
+  constructor(private _ngZone: NgZone, public dRef: MatDialogRef<ModifyDrinkDialog>,
               @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
 
@@ -134,6 +141,13 @@ export class ModifyDrinkDialog {
       this.data.drink.ingredients.splice(index, 1);
     }
 
+  }
+  @ViewChild('autosize', {static: false}) autosize: CdkTextareaAutosize;
+
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this._ngZone.onStable.pipe(take(1))
+        .subscribe(() => this.autosize.resizeToFitContent(true));
   }
 }
 
