@@ -25,10 +25,10 @@
   </form>
 
     <div class="signupButton">
-      <button mat-raised-button type="button" (click)="submit()">Signup</button>
+      <button mat-raised-button type="button" (click)="submit()">{{loginToggle ? "LOGIN" : "SIGNUP"}}</button>
     </div>
     <div class="toggleButton">
-      <p>Already Have An Account?</p>
-      <button mat-raised-button type="button" (click)="loginToggle = !loginToggle">{{loginToggle ? "signup" : "login"}}</button>
+      <p>{{loginToggle ? "Don't Have An Account?" : "Already Have An Account?"}}</p>
+      <button mat-raised-button type="button" (click)="loginToggle = !loginToggle">{{loginToggle ? "SIGNUP HERE" : "LOGIN HERE"}}</button>
     </div>
 </div>
