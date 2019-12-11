@@ -1,0 +1,6 @@
+<div id="postbox">
+  <input [(ngModel)]="title">
+  <textarea [(ngModel)]="content"></textarea>
+  <button (click)="postPost()">post</button>
+  <app-post *ngFor="let p of posts" [title]="p.title" [content]="p.content"></app-post>
+</div>

@@ -38,7 +38,6 @@ export class Ingredient {
 
 
 
-
 // types from the API
 
 export interface CDBDrinksObject {
@@ -87,4 +86,28 @@ export interface CDBDrinkMin {
   strDrink: string;
   strDrinkThumb: string;
   idDrink: string;
+}
+
+
+// posts
+
+export class Post {
+  id: number;
+  title: string;
+  content: string;
+  drinkId: number;
+  userId: number;
+}
+
+
+
+
+// user types
+
+export class User {
+  id: number;
+  username: string;
+  email: string;
+  password: string;
+  admin: null | boolean;
 }

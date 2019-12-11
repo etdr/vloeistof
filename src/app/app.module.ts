@@ -12,7 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +30,9 @@ import { CreditsComponent } from './credits/credits.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './mydrinks/drinkslist/drinkslist.component';
+import { AdminComponent } from './admin/admin.component';
+import { PostComponent } from './mydrinks/drinkslist/postbox/post.component';
+import { PostboxComponent } from './mydrinks/drinkslist/postbox/postbox.component';
 
 
 @NgModule({
@@ -45,7 +50,10 @@ import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './m
     SearchResultsComponent,
     DrinksListComponent,
     ModifyDrinkDialog,
-    ConfirmDeleteDialog
+    ConfirmDeleteDialog,
+    AdminComponent,
+    PostComponent,
+    PostboxComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +71,8 @@ import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './m
     MatChipsModule,
     MatIconModule,
     MatTabsModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
     MatDialogModule
   ],
   entryComponents: [

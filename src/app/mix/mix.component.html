@@ -2,7 +2,7 @@
 
     <div class="drinkNameField">
         <h2>Drink Name</h2>
-        <mat-form-field>
+        <mat-form-field id="drinkName">
             <!-- <mat-label>
                 Enter Your Drink Name Here
             </mat-label> -->
@@ -33,19 +33,29 @@
         <div class="ingredientAddInputFields">
     <mat-form-field id="ingredient-add1">
             <div id="amount">
-            <input matInput placeholder="Amount" 
-            [matChipInputFor]="chipList" [(ngModel)]="inputAmount"
-            >
+            <input matInput type="text" placeholder="Amount"
+            [matChipInputFor]="chipList"
+            [(ngModel)]="inputAmount">
             </div>
         </mat-form-field>
         <mat-form-field id="ingredient-add2">
             <div id="ingredient">
-            <input matInput placeholder="Ingredient" 
+            <input matInput placeholder="Ingredient"
+            #ingredientsInput
+            [formControl]="ingredientCtrl"
+            [matAutocomplete]="auto" 
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
             [matChipInputAddOnBlur]="addOnBlur"
-            [matChipInputFor]="chipList" [(ngModel)]="inputIngredient"
+            [matChipInputFor]="chipList"
+            
             (matChipInputTokenEnd)="addIng($event)">
-            </div>  
+            </div>
+            <mat-autocomplete #auto="matAutocomplete"
+            (optionSelected)="selected($event)">
+                    <mat-option *ngFor="let ingredient of filteredIngredients | async" [value]="ingredient">
+                      {{ingredient.name}}
+                    </mat-option>
+                  </mat-autocomplete>
         </mat-form-field>
         </div>
         
@@ -53,6 +63,7 @@
                 <mat-chip *ngFor="let ingredient of ingredients" [selectable]="selectable"
                 [removable]="removable" (removed)="remove(ingredient)">
                     {{ingredient.amount}}&ensp;{{ingredient.name}}
+                    <!-- {{ingredient}} -->
                     <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                 </mat-chip>
             </mat-chip-list>
@@ -62,8 +73,13 @@
 
     <div class="instructionsField">
         <h2>Instructions</h2>
-        <mat-form-field>
-            <textarea matInput placeholder="Instructions On How To Make This Drink" [(ngModel)]="instructions"></textarea>
+        <mat-form-field id="instructionsSize">
+            <textarea matInput placeholder="Instructions On How To Make This Drink"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="10"
+            [(ngModel)]="instructions"></textarea>
         </mat-form-field>
     </div>
 
