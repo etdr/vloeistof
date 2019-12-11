@@ -1,4 +1,4 @@
-import { Component, NgZone, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, NgZone, ViewChild, ElementRef, OnInit, Inject } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import {take} from 'rxjs/operators';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
@@ -8,9 +8,11 @@ import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/a
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { DrinksService } from '../drinks.service';
 import { QIngredient, Drink, Ingredient } from '../types';
+import { IngredientsService } from '../ingredients.service';
 
 
 const MEASUREMENTS = ['oz ', 'ozs ', 'ounces ', 'part ', 'parts ', 'cl ', 'cls ', 'ml ', 'mls ', 'qt ', 'qts ',
@@ -42,6 +44,8 @@ export class MixComponent implements OnInit {
   //['gin', 'tequila', 'rum', 'whiskey', 'scotch', 'schnapps', 'lemon', 'lime', 'orange', 'peach', 'bitters',]
     // ingredientSource: Ingredient[] = [];
 
+  ingSource: Ingredient[] = [];
+
   @ViewChild('ingredientsInput', {static: false}) ingredientsInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
@@ -52,14 +56,17 @@ export class MixComponent implements OnInit {
   
 
   constructor (private drinksService: DrinksService,
-    private router: Router, private _ngZone: NgZone) {
+    private router: Router, private _ngZone: NgZone,
+    private ingService: IngredientsService,
+    public dialog: MatDialog) {
       this.filteredIngredients = this.ingredientCtrl.valueChanges.pipe(
         startWith(null),
-        map((ingredient: string | null) => ingredient ? this._filter(ingredient) : this.fakeIngredients.slice()));
+        map((ingredient: string | null) => (typeof ingredient === "string" && ingredient) ? this._filter(ingredient) : this.ingSource.slice()));
+        //map((ingredient: string | null) => (ingredient) ? this._filter(ingredient) : this.fakeIngredients.slice()));
      }
 
   ngOnInit() {
-
+    this.ingService.getIngs().subscribe(ings => this.ingSource = ings);
   }
 
   addIng(event: MatChipInputEvent): void {
@@ -109,7 +116,7 @@ export class MixComponent implements OnInit {
     console.log("_filter value:",value);
     const filterValue = value.toLowerCase();
 
-    return this.fakeIngredients.filter(ingredient => ingredient.name.toLowerCase().indexOf(filterValue) === 0);
+    return this.ingSource.filter(ingredient => ingredient.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
 
@@ -136,75 +143,47 @@ export class MixComponent implements OnInit {
         .subscribe(() => this.autosize.resizeToFitContent(true));
   }
 
+  addIngToServer() {
+
+  }
+
+  openAddIngDialog() {
+    const dRef = this.dialog.open(AddIngDialog, {
+      width: '600px'
+    });
+
+    dRef.afterClosed().subscribe(res => {
+      console.log(res);
+      this.ingService.postIng(res)
+        .subscribe(i => this.ingSource.push(i));
+      
+    });
+  }
+
 }
 
 
-
-// export class MixComponent {
-
-  // drinkName: string = "";
-  // instructions: string = "";
-
-//   visible = true;
-//   selectable = true;
-//   removable = true;
-//   addOnBlur = true;
-//   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-//   ings: QIngredient[] = [];
-
-//   constructor (private drinksService: DrinksService) { }
+class DialogData {
+  ing: Ingredient;
+}
 
 
-//   splitIngredient (qstr: string): string[] {
-//     let a = ''; let i = '';
-//     for (let m of MEASUREMENTS) {
-//       if (qstr.indexOf(m) >= 0) {
-//         let spl = qstr.indexOf(m);
-//         a = qstr.slice(0, spl + m.length);
-//         i = qstr.slice(spl + m.length );
-//       }
-//     }
-//     if (i.indexOf("of ") >= 0) i = i.split("of ")[1];
-//     console.log('amount', a, '; ing', i);
-//     return [a, i];
-//   }
+@Component({
+  selector: 'add-ing',
+  templateUrl: './add-ing.html',
+  styleUrls: ['./mix.component.scss']
+})
+export class AddIngDialog {
+
+  ingName: string;
+  ingComments: string;
+
+  constructor (public dRef: MatDialogRef<AddIngDialog>) { }
+    //@Inject(MAT_DIALOG_DATA) public data: DialogData) {
 
 
+  onNoClick() {
+    this.dRef.close();
+  }
 
-//   add(event: MatChipInputEvent): void {
-//     const input = event.input;
-//     const value = event.value;
-
-//     const [a, i] = this.splitIngredient(value);
-
-//     if ((value || '').trim()) {
-//       this.ings.push({name: i,
-//         amount: a,
-//         id: 0
-//       });
-//     }
-//     if (input) {
-//       input.value = '';
-//     }
-//   }
-//   remove(i: QIngredient): void {
-//     const index = this.ings.indexOf(i);
-
-//     if (index >= 0) {
-//       this.ings.splice(index, 1);
-//     }
-//   }
-
-
-  // addDrink () {
-  //   this.drinksService.addDrink({
-  //     name: this.drinkName,
-  //     id: 0,
-  //     ingredients: this.ings,
-  //     instructions: this.instructions,
-  //     thumbUrl: '',
-  //     userId: 0,
-  //     cDBId: 0
-  //   }).subscribe(res => console.log(res));
-  // }
-// } 
+}
