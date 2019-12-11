@@ -46,10 +46,12 @@
             [matAutocomplete]="auto" 
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
             [matChipInputAddOnBlur]="addOnBlur"
-            [matChipInputFor]="chipList" [(ngModel)]="inputIngredient"
+            [matChipInputFor]="chipList"
+            [(ngModel)]="inputIngredient"
             (matChipInputTokenEnd)="addIng($event)">
             </div>
-            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-autocomplete #auto="matAutocomplete"
+            (optionSelected)="selected($event)">
                     <mat-option *ngFor="let ingredient of filteredIngredients | async" [value]="ingredient">
                       {{ingredient}}
                     </mat-option>
@@ -61,6 +63,7 @@
                 <mat-chip *ngFor="let ingredient of ingredients" [selectable]="selectable"
                 [removable]="removable" (removed)="remove(ingredient)">
                     {{ingredient.amount}}&ensp;{{ingredient.name}}
+                    <!-- {{ingredient}} -->
                     <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                 </mat-chip>
             </mat-chip-list>

@@ -35,8 +35,8 @@ export class MixComponent implements OnInit {
   ingredientCtrl = new FormControl();
   filteredIngredients: Observable<string[]>;
   ingredients: QIngredient[] = [];
-  // ingredientSource: Ingredient[] = [];
   fakeIngredients: string[] = ['gin', 'tequila', 'rum', 'whiskey', 'scotch', 'schnapps', 'lemon', 'lime', 'orange', 'peach', 'bitters',]
+    // ingredientSource: Ingredient[] = [];
 
   @ViewChild('ingredientsInput', {static: false}) ingredientsInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
@@ -62,6 +62,7 @@ export class MixComponent implements OnInit {
     if (!this.matAutocomplete.isOpen) {
       const input = event.input;
       const value = event.value;
+      
 
     if ((value || '').trim()) {
       this.ingredients.push({
@@ -90,7 +91,7 @@ export class MixComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent) : void {
-    // this.ingredients.push(event.option.viewValue);
+    this.fakeIngredients.push(event.option.viewValue);
     this.ingredientsInput.nativeElement.value = '';
     this.ingredientCtrl.setValue(null);
   }
