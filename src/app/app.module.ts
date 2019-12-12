@@ -33,6 +33,8 @@ import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './m
 import { AdminComponent } from './admin/admin.component';
 import { PostComponent } from './mydrinks/drinkslist/postbox/post.component';
 import { PostboxComponent } from './mydrinks/drinkslist/postbox/postbox.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import { PostboxComponent } from './mydrinks/drinkslist/postbox/postbox.componen
     MatTabsModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     ModifyDrinkDialog,

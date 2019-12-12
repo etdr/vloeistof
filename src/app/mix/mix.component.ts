@@ -153,10 +153,11 @@ export class MixComponent implements OnInit {
     });
 
     dRef.afterClosed().subscribe(res => {
-      console.log(res);
-      this.ingService.postIng(res)
-        .subscribe(i => this.ingSource.push(i));
-      
+      //console.log(res);
+      if (res) {
+        this.ingService.postIng(res)
+          .subscribe(i => this.ingSource.push(i));
+      }
     });
   }
 
