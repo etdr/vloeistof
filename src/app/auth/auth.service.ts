@@ -3,8 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap, finalize } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
+import { APIURL } from '../../environments/environment.prod';
 
-const BASEURL = "https://vloeistof-server.herokuapp.com/api/user";
+const BASEURL = APIURL+"/api/user";
 //const BASEURL = "http://localhost:3016/api/user";
 
 const httpOptions = {

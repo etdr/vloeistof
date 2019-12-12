@@ -5,8 +5,9 @@ import { map } from 'rxjs/operators';
 
 import { AuthService } from './auth/auth.service';
 import { Drink, Ingredient, QIngredient } from './types';
+import { APIURL } from '../environments/environment.prod';
 
-const BASEURL = "https://vloeistof-server.herokuapp.com/api/drinks";
+const BASEURL = APIURL+"/api/drinks";
 
 let httpOptions = {
   headers: new HttpHeaders({
