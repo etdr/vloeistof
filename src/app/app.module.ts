@@ -32,9 +32,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './mydrinks/drinkslist/drinkslist.component';
 import { AdminComponent } from './admin/admin.component';
 import { PostComponent } from './mydrinks/drinkslist/postbox/post.component';
-import { PostboxComponent } from './mydrinks/drinkslist/postbox/postbox.component';
+
+import { PostboxComponent, PostDialogue } from './mydrinks/drinkslist/postbox/postbox.component';
+
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
 
 
 @NgModule({
@@ -56,7 +59,8 @@ import { environment } from '../environments/environment';
     ConfirmDeleteDialog,
     AdminComponent,
     PostComponent,
-    PostboxComponent
+    PostboxComponent,
+    PostDialogue
   ],
   imports: [
     BrowserModule,
@@ -82,7 +86,11 @@ import { environment } from '../environments/environment';
   entryComponents: [
     ModifyDrinkDialog,
     ConfirmDeleteDialog,
+
+    PostDialogue
+
     AddIngDialog
+
   ],
   providers: [],
   bootstrap: [AppComponent]

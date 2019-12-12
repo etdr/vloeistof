@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PostsService } from './posts.service';
 import { Post } from '../../../types';
 import { tap } from 'rxjs/operators';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-postbox',
@@ -19,7 +21,7 @@ export class PostboxComponent implements OnInit {
   
   posts: Post[] = [];
 
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService, public dialog: MatDialog) { }
 
   ngOnInit() {
 
@@ -38,4 +40,35 @@ export class PostboxComponent implements OnInit {
       .subscribe(p => this.posts.push(p));
 
   }
+
+  openDialog(drinkId) {
+    const dRef = this.dialog.open(PostDialogue, {width: "600px"});
+
+    dRef.afterClosed().subscribe(res => {
+      this.postsService.postPost(drinkId, res.title, res.content)
+        .subscribe(p => this.posts.push(p));
+    });
+  }
 }
+
+
+
+@Component ({
+  selector: 'app-postDialogue',
+  templateUrl: './postDialogue.component.html',
+  styleUrls: ['./postbox.component.scss']
+})
+export class PostDialogue{
+  title: string;
+  content: string;
+
+  constructor(public dRef: MatDialogRef<PostDialogue>) {
+
+  }
+
+  onNoClick() {
+    this.dRef.close()
+  }
+
+}
+

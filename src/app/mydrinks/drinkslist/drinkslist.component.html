@@ -25,7 +25,8 @@
         <button mat-raised-button (click)="openConfirmDialog(d.id)">delete drink</button>
       </div>
 
-      <app-postbox [drinkId]="d.id"></app-postbox>
+      <app-postbox [drinkId]="d.id"></app-postbox> 
+      <!-- line 28 is calling postbox component -->
 
     </mat-card-content>
   </mat-card>
