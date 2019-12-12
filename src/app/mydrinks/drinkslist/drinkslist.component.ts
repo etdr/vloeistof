@@ -27,7 +27,7 @@ export class DrinksListComponent implements OnInit {
               private route: ActivatedRoute,
               private drinksService: DrinksService,
               public dialog: MatDialog,
-              private authService: AuthService) { }
+              public authService: AuthService) { }
 
   ngOnInit() {
     this.route.url
@@ -96,13 +96,14 @@ export class DrinksListComponent implements OnInit {
       width: '600px'
     });
 
-    dRef.afterClosed().subscribe(() => {
+    dRef.afterClosed().subscribe(res => {
       // actually delete drink here
-      this.drinksService.deleteDrink(drinkid)
-        .subscribe(() => undefined);
+      if (res) {
+        this.drinksService.deleteDrink(drinkid)
+          .subscribe(() => undefined);
       
-      this.drinks = this.drinks.filter(d => d.id !== drinkid);
-
+        this.drinks = this.drinks.filter(d => d.id !== drinkid);
+      }
     })
   }
 

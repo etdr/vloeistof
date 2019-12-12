@@ -20,7 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
-import { MixComponent } from './mix/mix.component';
+import { MixComponent, AddIngDialog } from './mix/mix.component';
 import { MydrinksComponent } from './mydrinks/mydrinks.component';
 import { AuthComponent } from './auth/auth.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -32,7 +32,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './mydrinks/drinkslist/drinkslist.component';
 import { AdminComponent } from './admin/admin.component';
 import { PostComponent } from './mydrinks/drinkslist/postbox/post.component';
+
 import { PostboxComponent, PostDialogue } from './mydrinks/drinkslist/postbox/postbox.component';
+
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -42,6 +46,7 @@ import { PostboxComponent, PostDialogue } from './mydrinks/drinkslist/postbox/po
     NavbarComponent,
     SearchComponent,
     MixComponent,
+    AddIngDialog,
     MydrinksComponent,
     AuthComponent,
     SignupComponent,
@@ -75,12 +80,17 @@ import { PostboxComponent, PostDialogue } from './mydrinks/drinkslist/postbox/po
     MatTabsModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     ModifyDrinkDialog,
     ConfirmDeleteDialog,
+
     PostDialogue
+
+    AddIngDialog
+
   ],
   providers: [],
   bootstrap: [AppComponent]

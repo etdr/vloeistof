@@ -3,8 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthService } from '../../../auth/auth.service';
 import { Post } from '../../../types';
+import { APIURL } from '../../../../environments/environment.prod';
 
-const BASEURL = "https://vloeistof-server.herokuapp.com/api/posts"
+const BASEURL = APIURL+"/api/posts";
 
 let httpOptions = {
   headers: new HttpHeaders({

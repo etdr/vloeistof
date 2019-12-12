@@ -1,12 +1,24 @@
+div#navbar {
+  display: flex;
+  width: 100vw;
+  background: var(--plum);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
 .header {
   // border: 1px solid black;
-  height: 150px;
+  height: 100px;
   background-color: var(--orange);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   font-family: var(--font-one);
   color: var(--plum);
-  display: flex;
+  display: inline-flex;
   justify-content: center; //acutally centers this from left to right on the page...don't change this.
   align-items: center; //centers it from top to bottom
+  flex-grow: 1;
   
 }
 
@@ -16,9 +28,9 @@
 }
 
 #headerText {
-  font-size: 70px;
+  font-size: 3rem;
   // border: 1px solid black;
-  height: 75px;
+  //height: 75px;
 }
 
 #marg {
@@ -30,12 +42,14 @@ nav {
   // border: 1px solid green;
   background-color: var(--plum);
   color: var(--orange);
-  height: 85px;
+  height: 60px;
   font-family: var(--font-two);
-  display: flex;
-  align-items: baseline; //centers it from top to bottom
-  justify-content: center; //acutally centers this from left to right on the page...don't change this.
-
+  display: inline-flex;
+  flex-grow: 3;
+  //align-items: baseline; //centers it from top to bottom
+  justify-content: flex-end; //acutally centers this from left to right on the page...don't change this.
+  flex-wrap: wrap;
+  padding-right: 1rem;
 }
 
 
@@ -62,7 +76,7 @@ li a {
   // flex-wrap: nowrap;
   text-decoration: none;
   color: var(--orange);
-  font-size: 25px;
+  font-size: 1.6rem;
   justify-content: flex-start;
   align-items: baseline;
 }
@@ -96,13 +110,27 @@ li a {
 }
 
 #logoutButton {
-  background-color: var(--plum);
-  color: var(--orange);
+  background-color: var(--orange);
+  color: var(--plum);
   height: 50px;
-  margin-top: 14px;
-  font-size: 20px;
+  margin-top: 8px;
+  font-size: 1.2rem;
   font-family: var(--font-two);
   margin-left: 10px;
-  border: 3px solid var(--orange);
+  border: 3px solid var(--plum);
   border-radius: 10px;
+}
+
+@media screen and (max-width: 900px) {
+
+  nav {
+    justify-content: center;
+  }
+
+  .header {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+
 }
