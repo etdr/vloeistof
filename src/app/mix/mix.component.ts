@@ -6,8 +6,8 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
 import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import {map, startWith, delay} from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { DrinksService } from '../drinks.service';
@@ -59,14 +59,15 @@ export class MixComponent implements OnInit {
     private router: Router, private _ngZone: NgZone,
     private ingService: IngredientsService,
     public dialog: MatDialog) {
-      this.filteredIngredients = this.ingredientCtrl.valueChanges.pipe(
-        startWith(null),
-        map((ingredient: string | null) => (typeof ingredient === "string" && ingredient) ? this._filter(ingredient) : this.ingSource.slice()));
-        //map((ingredient: string | null) => (ingredient) ? this._filter(ingredient) : this.fakeIngredients.slice()));
+      
      }
 
   ngOnInit() {
     this.ingService.getIngs().subscribe(ings => this.ingSource = ings);
+    setTimeout(() => this.filteredIngredients = this.ingredientCtrl.valueChanges.pipe(
+      startWith(this.ingSource.slice()),
+      map((ingredient: string | null) => (typeof ingredient === "string" && ingredient) ? this._filter(ingredient) : this.ingSource.slice())), 1000);
+      //map((ingredient: string | null) => (ingredient) ? this._filter(ingredient) : this.fakeIngredients.slice()));
   }
 
   addIng(event: MatChipInputEvent): void {
