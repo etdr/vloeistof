@@ -32,26 +32,38 @@ button {
 
 
 mat-card {
-    width: 25vw;
+    width: 300px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-
+    // margin-left: 10px;
+    // margin-bottom: 10px;
 }
 
 mat-card-title-group {
-    width: 25vw;
+    width: 300px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
 
-// mat-card-image {
-//     z-index: 0;
-// }
+.searchResults {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    width: 90vw;
+    justify-content: center;
+    align-items: space-around;
+}
 
-// mat-card-title {
-//     z-index: 1;
-// }
+.searchPage {
+    display: flex;
+    width: 100vw;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
