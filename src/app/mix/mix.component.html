@@ -1,0 +1,156 @@
+<div class="mixField">
+
+    <div class="drinkNameField">
+        <h2>Drink Name</h2>
+        <mat-form-field id="drinkName">
+            <!-- <mat-label>
+                Enter Your Drink Name Here
+            </mat-label> -->
+            <input matInput type="text" placeholder="Enter Your Drink Name Here" name="drinkName" [(ngModel)]="drinkName">
+        </mat-form-field>
+    </div>
+
+    <!-- <div class="ingredientsField">    
+        <h2>Ingredients</h2>
+        <mat-form-field class="mixChipList">
+            <mat-chip-list #chipList aria-label="Mix Selection">
+                <mat-chip *ngFor="let m of ings" [selectable]="selectable"
+                [removable]="removable" (removed)="remove(m)">
+                    {{m.amount + "&ensp;"}} <strong>{{m.name}}</strong>
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="Add The Amount And Name Of Ingredients"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+        </mat-form-field>
+    </div> -->
+
+    <div class="ingredientsField">
+            <h2>Ingredients</h2>
+        <div class="ingredientAddInputFields">
+    <mat-form-field id="ingredient-add1">
+            <div id="amount">
+            <input matInput type="text" placeholder="Amount"
+            [matChipInputFor]="chipList"
+            [(ngModel)]="inputAmount">
+            </div>
+        </mat-form-field>
+        <mat-form-field id="ingredient-add2">
+            <div id="ingredient">
+            <input matInput placeholder="Ingredient"
+            #ingredientsInput
+            [formControl]="ingredientCtrl"
+            [matAutocomplete]="auto" 
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            [matChipInputFor]="chipList"
+            
+            (matChipInputTokenEnd)="addIng($event)">
+            </div>
+            <mat-autocomplete #auto="matAutocomplete"
+            (optionSelected)="selected($event)">
+                    <mat-option *ngFor="let ingredient of filteredIngredients | async" [value]="ingredient">
+                      {{ingredient.name}}
+                    </mat-option>
+                  </mat-autocomplete>
+        </mat-form-field>
+        </div>
+        
+        <mat-chip-list #chipList aria-label="QIngredient selection">
+                <mat-chip *ngFor="let ingredient of ingredients" [selectable]="selectable"
+                [removable]="removable" (removed)="remove(ingredient)">
+                    {{ingredient.amount}}&ensp;{{ingredient.name}}
+                    <!-- {{ingredient}} -->
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+            </mat-chip-list>
+
+        <button mat-raised-button (click)="openAddIngDialog()">add new ingredient...</button>
+    </div>
+
+
+    <div class="instructionsField">
+        <h2>Instructions</h2>
+        <mat-form-field id="instructionsSize">
+            <textarea matInput placeholder="Instructions On How To Make This Drink"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="10"
+            [(ngModel)]="instructions"></textarea>
+        </mat-form-field>
+    </div>
+
+    <div class="favoriting">
+        <h3>favorite?</h3>
+        <input type="checkbox" [checked]="favorite" (change)="favorite = !favorite" name="favorite-checkbox">
+    </div>
+
+    <div class="addDrinkButton">
+        <button id="mixButton" mat-raised-button type="button" (click)="addDrink()">Save Drink</button>
+    </div>
+
+</div>
+
+
+
+<!-- <mat-form-field id="ingredient-add1">
+        <div id="amount">
+        <input matInput placeholder="Amount" 
+        [matChipInputFor]="chipList" [(ngModel)]="inputAmount"
+        >
+        </div>
+    </mat-form-field>
+    <mat-form-field id="ingredient-add2">
+        <div id="ingredient">
+        <input matInput placeholder="Ingredient" 
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        [matChipInputFor]="chipList" [(ngModel)]="inputIngredient"
+        (matChipInputTokenEnd)="add($event)">
+        </div>
+        
+    </mat-form-field>
+    
+    
+    <mat-chip-list #chipList aria-label="QIngredient selection">
+            <mat-chip *ngFor="let ingredient of ingredients" [selectable]="selectable"
+            [removable]="removable" (removed)="remove(ingredient)">
+                {{ingredient.amount}}{{ingredient.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list> -->
+
+
+
+<!-- <div id="submit">
+        <button matButton (matChipInputTokenEnd)="add($event)">Add Ingredient</button>
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <input placeholder="drink name">
+<div id="ingredients">
+    <h2>Ingredients</h2>
+    <div id="ingredient-add">
+        <input [(ngModel)]="inputAmount">
+        <input [(ngModel)]="inputIngredient">
+        <button (click)="addIngToList()">Add Ingredient</button>
+    </div>
+    <div id="ingredients-list">
+    </div>
+</div>-->

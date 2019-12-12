@@ -1,0 +1,57 @@
+.searchField {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 40vw;
+    height: 45px;
+}
+
+.searchInput{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+button {
+    height: 45px;
+    width: 150px;
+}
+
+#searchbox {
+    background-color: var(--orange);
+    border: none;
+    border-radius: 5px 5px;
+    text-align: center;
+}
+
+
+
+mat-card {
+    width: 25vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+mat-card-title-group {
+    width: 25vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+// mat-card-image {
+//     z-index: 0;
+// }
+
+// mat-card-title {
+//     z-index: 1;
+// }

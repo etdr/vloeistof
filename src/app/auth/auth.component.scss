@@ -1,0 +1,94 @@
+.authenticationField {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+#createAccount {
+    color: var(--lime);
+    font-family: var(--font-two);
+}
+
+// .mat-form-field-infix { //This did not change what I wanted
+//     font-family: var(--font-four);
+//     color: var(--teal);
+// }
+
+.inputFields {
+    color: var(--teal);
+}
+#usernameInput {
+    font-family: var(--font-four);
+    color: var(--teal);
+    font-size: 30px;
+}
+
+.toggleButton {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+}
+
+p {
+    margin-bottom: 5px;
+    font-size: 9pt;
+    // letter-spacing: 2px;
+    word-spacing: 5px;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+.inputFields {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 250px;
+    align-items: space-between;
+}
+
+mat-form-field {
+    min-width: 25vw;
+    text-align: center;
+}
+
+::ng-deep .mat-form-field-underline {
+    // background-color: #50d0fb !important;
+    background-color: var(--teal) !important;
+}
+
+::ng-deep .mat-form-field-label {
+    // color: #50d0fb !important;
+    color: var(--teal) !important;
+    font-family: var(--font-four);
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-outline {
+    color: var(--teal) !important;
+}
+
+::ng-deep .mat-form-field .mat-form-field-outline {
+    color: var(--teal) !important;
+}
+
+::ng-deep .mat-form-field .mat-input {
+    color: var(--teal) !important;
+    font-family: var(--font-four);
+}
+
+input {
+
+    color: white;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+
+}

@@ -1,0 +1,123 @@
+body {
+  color: white;
+}
+
+// p {
+//   color: white;
+// }
+
+.createdDrinksDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#createdDrinksH1 {
+  font-family: var(--font-four);
+  font-weight: 300;
+  color: var(--teal);
+  margin: auto;
+  // border: 1px solid white;
+  width: 25%;
+}
+
+.myDrinkCard {
+  // border: 1px solid blueviolet;
+  width: 15%;
+  margin: 20px;
+  background-color: var(--teal);
+  border: 2px solid var(--plum);
+  border-radius: 10px;
+  font-family: var(--font-four);
+  color: var(--plum);
+  
+}
+
+.myDrinkTitle {
+  // border: 1px solid black;
+  // font-family: var(--font-four);
+  // color: var(--darkPlum);
+
+}
+
+.myDrinksContent {
+  font-family: var(--font-four);
+  color: var(--plum);
+}
+
+hr {
+  color: black;
+}
+
+#favoriteDrinksH1 {
+  font-family: var(--font-four);
+  font-weight: 300;
+  color: var(--teal);
+  margin: auto;
+  // border: 1px solid white;
+  width: 25%;
+}
+
+.favDrinkCard {
+  width: 15%;
+  margin: 20px;
+
+}
+
+
+.modifyMixField {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ingredientsField {
+  display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.instructionsField {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalButtons {
+  display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modifyName {
+  display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-form-field {
+  min-width: 25vw;
+  text-align: center;
+}
+
+textarea {
+  // height: 100px;
+}
+
+textarea.mat-input-element {
+  // margin-top: 30px;
+  // margin-bottom: 10px;
+}
+
+.mat-dialog-actions {
+  margin-bottom: 0px;
+}

@@ -1,0 +1,75 @@
+
+body {
+  // color: white;
+}
+
+// p {
+//   color: white;
+// }
+
+
+
+#createdDrinksH1 {
+  font-family: var(--font-four);
+  font-weight: 300;
+  color: var(--lime);
+  margin: auto;
+  // border: 1px solid white;
+  width: 25%;
+}
+
+.createdDrinksCardDiv {
+  // border: 1px solid white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  }
+
+.myDrinkCard {
+  // border: 1px solid white;
+  width: 15%;
+  margin: 20px;
+  background-color: var(--lime);
+  border: 2px solid var(--plum);
+  border-radius: 10px;
+  font-family: var(--font-four);
+  color: var(--plum);
+
+}
+
+.myDrinkTitle {
+  // border: 1px solid black;
+  // font-family: var(--font-four);
+  // color: var(--darkPlum);
+}
+
+
+nav {
+  background: var(--orange);
+  color: var(--darkPlum);
+  
+  a {
+    font-family: var(--font-two);
+    font-weight: bold;
+    color: var(--darkPlum);
+    font-size: 1.2rem;
+
+    &:active {
+      border-bottom: solid var(--darkPlum) 5px;
+    }
+  }
+}
+
+
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: var(--darkPlum);
+}
+
+.tabsNav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: space-between;
+  background: var(--orange); 
+}
+

@@ -1,0 +1,108 @@
+.mixField {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.drinkNameField {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.ingredientsField {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.instructionsField {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.addDrinkButton {
+  padding-top: 20px;
+}
+
+mat-form-field {
+    // min-width: 25vw;
+    // text-align: center;
+}
+
+#drinkName {
+  width: 25vw;
+  text-align: center;
+}
+
+#ingredient-add1 {
+  width: 15vw;
+  text-align: center;
+}
+
+#ingredient-add2 {
+  width: 15vw;
+  text-align: center;
+}
+
+#instructionsSize {
+  width: 25vw;
+  text-align: center;
+}
+
+textarea {
+    // height: 100px;
+    // border: solid black 1px;
+    // border-radius: 10px 10px;
+}
+
+::ng-deep .mat-form-field-underline {
+    background-color: var(--teal) !important;
+  }
+
+  ::ng-deep .mat-form-field-label {
+    color: var(--teal) !important;
+  }
+
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-outline {
+    color: var(--teal) !important;
+  }
+
+  ::ng-deep .mat-form-field .mat-form-field-outline {
+    color: var(--teal) !important;
+  }
+
+  ::ng-deep .mat-form-field .mat-input {
+    color: var(--teal) !important;
+  }
+
+  input {
+      color: white;
+      font-family: var(--font-four);
+  }
+
+  h2 {
+      color: var(--lime);
+      font-family: var(--font-two);
+  }
+
+  #mixButton {
+    background-color: var(--darkPlum);
+    color: var(--lime);
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    font-family: var(--font-two);
+  }
+
+  textarea {
+    color: white;
+    font-family: var(--font-four);
+  }

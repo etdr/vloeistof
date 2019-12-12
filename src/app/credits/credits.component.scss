@@ -1,0 +1,91 @@
+.creditsDiv {
+  border: 2px solid white;
+}
+
+#creditsTitle {
+  color: var(--lime);
+  font-family: var(--font-two);
+  font-size: 40px;
+  // border: 1px solid pink;
+  width: 15%;
+  margin: auto;
+}
+
+#creditsSubtitle {
+  color: var(--teal);
+  font-family: var(--font-three); //find a different font Lindsey - I don't like this one. Love, Lindsey.
+  font-size: 25px;
+  // border: 1px solid yellow;
+  width: 80%;
+  margin: auto;
+}
+
+.creditIconsDiv {
+  border: 1px solid palegreen;
+  color: var(--lime);
+}
+
+.iconsCredit {
+  // border: 1px solid palegoldenrod;
+  width: 45%;
+  margin: auto;
+}
+
+#freepikCredit {
+  font-family: var(--font-three);
+  padding: 10px;
+  font-size: 20px;
+}
+
+.creditFreepik {
+  // border: 1px solid palevioletred;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+a {
+  color: var(--lime);
+}
+
+#margCredit {
+  height: 75px;
+}
+
+#cosmoCredit {
+  height: 75px;
+}
+
+#mojitoCredit {
+  height: 75px;
+}
+
+#shakerCredit {
+  height: 75px;
+}
+
+#bottlesCredit {
+  height: 75px;
+}
+
+#favAddCredit {
+  height: 75px;
+}
+
+#favHeartRed {
+  height: 75px;
+}
+
+#barBeach {
+  border: 1px solid white;
+}
+
+#barCredit {
+  height: 75px;
+}
+
+#beachCredit {
+  height: 75px;
+}

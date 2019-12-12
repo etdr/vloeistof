@@ -1,0 +1,108 @@
+.header {
+  // border: 1px solid black;
+  height: 150px;
+  background-color: var(--orange);
+  font-family: var(--font-one);
+  color: var(--plum);
+  display: flex;
+  justify-content: center; //acutally centers this from left to right on the page...don't change this.
+  align-items: center; //centers it from top to bottom
+  
+}
+
+#cosmo {
+  height: 75px;
+  padding: 20px;
+}
+
+#headerText {
+  font-size: 70px;
+  // border: 1px solid black;
+  height: 75px;
+}
+
+#marg {
+  height: 80px;
+  padding: 20px;
+}
+
+nav {
+  // border: 1px solid green;
+  background-color: var(--plum);
+  color: var(--orange);
+  height: 85px;
+  font-family: var(--font-two);
+  display: flex;
+  align-items: baseline; //centers it from top to bottom
+  justify-content: center; //acutally centers this from left to right on the page...don't change this.
+
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  // border: 1px solid purple;
+}
+
+li {
+  display: inline;
+  padding: 15px;
+  font-family: var(--font-two);
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+li a {
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
+  text-decoration: none;
+  color: var(--orange);
+  font-size: 25px;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+#mojito {
+  height: 40px;
+  // border: 1px solid black;
+  // margin: auto;
+}
+
+#shaker {
+  height: 40px;
+
+}
+
+#bottles {
+  height: 40px;
+}
+
+#bar {
+  height: 40px;
+}
+
+#beach {
+  height: 40px;
+}
+
+
+.active-link {
+  border-bottom: solid var(--teal) 8px;
+}
+
+#logoutButton {
+  background-color: var(--plum);
+  color: var(--orange);
+  height: 50px;
+  margin-top: 14px;
+  font-size: 20px;
+  font-family: var(--font-two);
+  margin-left: 10px;
+  border: 3px solid var(--orange);
+  border-radius: 10px;
+}

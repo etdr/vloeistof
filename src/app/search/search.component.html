@@ -1,0 +1,47 @@
+<div class="searchField">
+    <div class="searchToggle">
+        <mat-button-toggle-group aria-labelledby="searchKind">
+            <mat-button-toggle>Name</mat-button-toggle>
+            <mat-button-toggle>Ingredient</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div class="searchInput">
+        <input matInput type="search" id="searchbox" placeholder="Enter Your Search Term Here" [(ngModel)]="term">
+    </div>
+    <div class="searchButton">
+        <button mat-raised-button (click)="searchByName()">search</button>
+    </div>
+</div>
+
+  <mat-card *ngFor="let d of results">
+    <mat-card-title-group>
+        <mat-card-title>
+            {{d.name}}
+        </mat-card-title>
+        <img mat-card-image src={{d.thumbUrl}}>
+    </mat-card-title-group>
+    <mat-card-content>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Ingredients
+            </mat-expansion-panel-header>
+            <mat-list>
+                <mat-list-item *ngFor="let i of d.ingredients">
+                    <p>{{i.amount+"&ensp;"}}{{i.name}}</p>
+                </mat-list-item>
+            </mat-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Instructions
+            </mat-expansion-panel-header>
+            <!-- <mat-list>
+                <mat-list-item>
+                  {{}}
+                </mat-list-item>
+            </mat-list> -->
+            <p>{{d.instructions}}</p>
+        </mat-expansion-panel>
+        <button mat-button (click)="addDrink(d)">add to my drinks</button>
+    </mat-card-content>
+</mat-card>
