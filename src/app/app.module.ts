@@ -32,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './mydrinks/drinkslist/drinkslist.component';
 import { AdminComponent } from './admin/admin.component';
 import { PostComponent } from './mydrinks/drinkslist/postbox/post.component';
-import { PostboxComponent } from './mydrinks/drinkslist/postbox/postbox.component';
+import { PostboxComponent, PostDialogue } from './mydrinks/drinkslist/postbox/postbox.component';
+
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { PostboxComponent } from './mydrinks/drinkslist/postbox/postbox.componen
     ConfirmDeleteDialog,
     AdminComponent,
     PostComponent,
-    PostboxComponent
+    PostboxComponent,
+    PostDialogue
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,8 @@ import { PostboxComponent } from './mydrinks/drinkslist/postbox/postbox.componen
   ],
   entryComponents: [
     ModifyDrinkDialog,
-    ConfirmDeleteDialog
+    ConfirmDeleteDialog,
+    PostDialogue
   ],
   providers: [],
   bootstrap: [AppComponent]
