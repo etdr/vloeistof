@@ -1,0 +1,17 @@
+.addIngredientField {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+#newIngredientName {
+    width: 350px;
+    text-align: center;
+}
+
+#ingredientComments {
+    width: 500px;
+    text-align: center;
+}

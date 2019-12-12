@@ -173,16 +173,24 @@ class DialogData {
 @Component({
   selector: 'add-ing',
   templateUrl: './add-ing.html',
-  styleUrls: ['./mix.component.scss']
+  styleUrls: ['./add-ing.scss']
 })
 export class AddIngDialog {
 
   ingName: string;
   ingComments: string;
 
-  constructor (public dRef: MatDialogRef<AddIngDialog>) { }
+  constructor (public dRef: MatDialogRef<AddIngDialog>, private _ngZone: NgZone) { }
     //@Inject(MAT_DIALOG_DATA) public data: DialogData) {
 
+      @ViewChild('autosize', {static: false}) autosize: CdkTextareaAutosize;
+
+      triggerResize() {
+        // Wait for changes to be applied, then trigger textarea resize.
+        this._ngZone.onStable.pipe(take(1))
+            .subscribe(() => this.autosize.resizeToFitContent(true));
+      }
+    
 
   onNoClick() {
     this.dRef.close();

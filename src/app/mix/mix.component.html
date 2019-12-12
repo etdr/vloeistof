@@ -3,9 +3,6 @@
     <div class="drinkNameField">
         <h2>Drink Name</h2>
         <mat-form-field id="drinkName">
-            <!-- <mat-label>
-                Enter Your Drink Name Here
-            </mat-label> -->
             <input matInput type="text" placeholder="Enter Your Drink Name Here" name="drinkName" [(ngModel)]="drinkName">
         </mat-form-field>
     </div>
@@ -68,7 +65,7 @@
                 </mat-chip>
             </mat-chip-list>
 
-        <button mat-raised-button (click)="openAddIngDialog()">add new ingredient...</button>
+        <button mat-raised-button id="addIngredientButton" (click)="openAddIngDialog()">add new ingredient...</button>
     </div>
 
 
