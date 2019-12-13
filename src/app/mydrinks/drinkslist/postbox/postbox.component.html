@@ -1,4 +1,4 @@
 <div id="postbox">
-  <button (click)="openDialog(this.drinkId)">post</button>
-  <app-post *ngFor="let p of posts" [title]="p.title" [content]="p.content"></app-post>
+  <button (click)="openDialog()">post</button>
+  <app-post *ngFor="let p of posts" [id]="p.id" [userId]="p.userId" [title]="p.title" [content]="p.content"></app-post>
 </div>

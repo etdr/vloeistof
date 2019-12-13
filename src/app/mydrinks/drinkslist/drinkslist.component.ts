@@ -9,6 +9,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { DrinksService } from '../../drinks.service';
 import { AuthService } from '../../auth/auth.service';
 import { Drink, QIngredient } from 'src/app/types';
+import { PostboxComponent } from './postbox/postbox.component';
 
 export interface DialogData {
   drink: Drink
@@ -107,6 +108,20 @@ export class DrinksListComponent implements OnInit {
     })
   }
 
+  getTwitterLink(drinkName) {
+    return `https://twitter.com/intent/tweet?text=${encodeURIComponent(`I'm drinking a ${drinkName} with Vloeistof!`)}&url=${encodeURIComponent("https://vloeistof.herokuapp.com")}&via=chartrex`;
+  }
+
+
+  openPostbox(drink: Drink) {
+    const dRef = this.dialog.open(PostboxComponent, {
+      width: '1000px',
+      data: {
+        drink
+      }
+    })
+
+  }
 
 }
 

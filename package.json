@@ -7,7 +7,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    
     "start": "serve -s dist/vloeistof"
   },
   "private": true,

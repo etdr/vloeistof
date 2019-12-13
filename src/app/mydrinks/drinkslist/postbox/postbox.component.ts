@@ -1,9 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 
 import { PostsService } from './posts.service';
-import { Post } from '../../../types';
+import { Post, Drink } from '../../../types';
 import { tap } from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+
+class DialogData {
+  drink: Drink
+}
 
 
 @Component({
@@ -13,15 +18,16 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class PostboxComponent implements OnInit {
 
-  @Input()
-  drinkId: number;
+  // @Input()
+  // drinkId: number;
 
   title: string = "";
   content: string = "";
   
   posts: Post[] = [];
 
-  constructor(private postsService: PostsService, public dialog: MatDialog) { }
+  constructor(private postsService: PostsService, public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {
 
@@ -30,23 +36,25 @@ export class PostboxComponent implements OnInit {
 
 
   fetchPosts() {
-    this.postsService.getPosts(this.drinkId)
+    this.postsService.getPosts(this.data.drink.id)
       .subscribe(ps => this.posts = ps);
   }
 
   postPost() {
-    this.postsService.postPost(this.drinkId, this.title, this.content)
-      .pipe(tap(() => {this.title = ""; this.content = "";}))
-      .subscribe(p => this.posts.push(p));
+    this.postsService.postPost(this.data.drink.id, this.title, this.content)
+      // .pipe(tap(() => {this.title = ""; this.content = "";}))
+      .subscribe(p => this.posts.unshift(p));
 
   }
 
-  openDialog(drinkId) {
+  openDialog() {
     const dRef = this.dialog.open(PostDialogue, {width: "600px"});
 
     dRef.afterClosed().subscribe(res => {
-      this.postsService.postPost(drinkId, res.title, res.content)
+      if (res) {
+        this.postsService.postPost(this.data.drink.id, res.title, res.content)
         .subscribe(p => this.posts.push(p));
+      }
     });
   }
 }
