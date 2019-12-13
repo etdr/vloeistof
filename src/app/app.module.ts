@@ -86,9 +86,7 @@ import { environment } from '../environments/environment';
   entryComponents: [
     ModifyDrinkDialog,
     ConfirmDeleteDialog,
-
-    PostDialogue
-
+    PostDialogue,
     AddIngDialog
 
   ],
