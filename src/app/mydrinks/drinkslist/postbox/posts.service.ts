@@ -43,4 +43,9 @@ export class PostsService {
     httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
     return this.http.put<number[]>(BASEURL+"/"+post.id.toString(), {post}, httpOptions);
   }
+
+  deletePost(postId: number) {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
+    return this.http.delete<number[]>(BASEURL+"/"+postId.toString(), httpOptions);
+  }
 }
