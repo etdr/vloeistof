@@ -86,11 +86,10 @@ import { environment } from '../environments/environment';
   entryComponents: [
     ModifyDrinkDialog,
     ConfirmDeleteDialog,
-
     PostDialogue,
-
     AddIngDialog,
     PostboxComponent
+
 
   ],
   providers: [],
