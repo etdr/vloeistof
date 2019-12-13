@@ -6,13 +6,13 @@
 </div>
 <nav>
   <ul>
-    <li *ngIf="authService.admin" routerLinkActive="active-link"><a routerLink="/admin">Admin</a></li>
+    <li *ngIf="authService.admin" routerLinkActive="active-link" class="rlink"><a routerLink="/admin">Admin</a></li>
     <li *ngIf="authService.admin"><img id="mojito" src="../../assets/mojito.png"></li>
-    <li routerLinkActive="active-link"><a routerLink="/drinks/my">Drinks</a></li>
+    <li routerLinkActive="active-link" class="rlink"><a routerLink="/drinks/my">Drinks</a></li>
     <li><img id="shaker" src="../../assets/shaker.png"></li>
-    <li routerLinkActive="active-link"><a routerLink="/mix">Mix</a></li>
+    <li routerLinkActive="active-link" class="rlink"><a routerLink="/mix">Mix</a></li>
     <li><img id="bottles" src="../../assets/bottles.png"></li>
-    <li routerLinkActive="active-link"><a routerLink="/search">Search</a></li>
+    <li routerLinkActive="active-link" class="rlink"><a routerLink="/search">Search</a></li>
     <!-- <li><img id="bar" src="../../assets/bar.png"></li> -->
 
   </ul>

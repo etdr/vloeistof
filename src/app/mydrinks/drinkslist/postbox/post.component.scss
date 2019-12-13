@@ -29,5 +29,9 @@ div.buttons {
   button {
     background-color: var(--darkPlum);
     color: var(--orange);
+
+    &:hover {
+      color: var(--teal);
+    }
   }
 }
