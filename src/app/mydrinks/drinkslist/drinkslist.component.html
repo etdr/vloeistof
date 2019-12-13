@@ -24,6 +24,12 @@
           <mat-icon>edit</mat-icon>
         </button>
 
+        <button mat-raised-button class="drink-button" (click)="openConfirmDialog(d.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      </div>
+
         <a target="_blank" href={{getTwitterLink(d.name)}}> 
           <button mat-raised-button class="drink-button">
             <mat-icon>share</mat-icon>
@@ -34,10 +40,8 @@
           <mat-icon>chat</mat-icon>
         </button>
 
-        <button mat-raised-button class="drink-button" (click)="openConfirmDialog(d.id)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
+
+      
 
       <!-- <app-postbox [drinkId]="d.id"></app-postbox>  -->
       <!-- line 28 is calling postbox component -->

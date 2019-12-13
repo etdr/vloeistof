@@ -1,5 +1,15 @@
-<div id="post-div">
+<div class="post-div">
   <!-- <h3>{{title}}</h3> -->
-  <p>{{content}}</p>
-  <p><em>{{username}}</em></p>
+  <div class="comment">
+    <p class="comment-content">{{content}}</p>
+    <p class="comment-caption"><em>{{username}} on {{date}}</em></p>
+  </div>
+  <div class="buttons" *ngIf="authService.admin || authService.userId === userId">
+    <button mat-raised-button class="edit-comment-button" (click)="openEdit({title:title, content:content, id:id, userId:userId, date:date})">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-raised-button (click)="deletePost()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
 </div>

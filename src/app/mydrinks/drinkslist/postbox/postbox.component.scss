@@ -1,3 +1,15 @@
 div#postbox {
   background: var(--orange);
+  border-color: var(--orange);
+  color: var(--darkPlum);
+}
+
+// ::ng-deep div#postbox {
+//   background: var(--orange);
+// }
+
+::ng-deep .mat-dialog-container {
+  background: var(--orange);
+  border: solid var(--darkPlum) 10px;
+  //color: var(--orange);
 }

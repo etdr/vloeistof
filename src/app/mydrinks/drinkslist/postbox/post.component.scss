@@ -1,0 +1,33 @@
+
+div.post-div {
+  display: flex;
+}
+
+p {
+  &.comment-content {
+    margin-bottom: .6rem;
+  }
+
+  &.comment-caption {
+    font-size: .8rem;
+    margin-top: 0;
+  }
+}
+
+div.comment {
+  flex-grow: 1;
+}
+
+div.buttons {
+  margin-top: 1rem;
+  flex-grow: 0;
+
+  .edit-comment-button {
+    margin-right: 0.4rem;
+  }
+
+  button {
+    background-color: var(--darkPlum);
+    color: var(--orange);
+  }
+}

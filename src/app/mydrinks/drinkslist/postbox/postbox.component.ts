@@ -48,7 +48,7 @@ export class PostboxComponent implements OnInit {
   }
 
   openDialog() {
-    const dRef = this.dialog.open(PostDialogue, {width: "600px"});
+    const dRef = this.dialog.open(PostDialogue, {width: "600px", data: {post: undefined}});
 
     dRef.afterClosed().subscribe(res => {
       if (res) {
@@ -70,7 +70,8 @@ export class PostDialogue{
   title: string;
   content: string;
 
-  constructor(public dRef: MatDialogRef<PostDialogue>) {
+  constructor(public dRef: MatDialogRef<PostDialogue>,
+              @Inject(MAT_DIALOG_DATA) public data: {post: Post} | undefined) {
 
   }
 

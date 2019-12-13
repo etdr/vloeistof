@@ -40,6 +40,7 @@ export class PostsService {
   }
 
   modifyPost(post: Post) {
-    
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
+    return this.http.put<number[]>(BASEURL+"/"+post.id.toString(), {post}, httpOptions);
   }
 }

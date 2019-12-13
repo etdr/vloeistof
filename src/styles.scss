@@ -36,3 +36,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 
 @import './app/scssVariables/app.variables.scss';
 
+::ng-deep .mat-dialog-container {
+  background: var(--orange);
+  border: solid var(--darkPlum) 10px;
+  color: var(--darkPlum);
+}

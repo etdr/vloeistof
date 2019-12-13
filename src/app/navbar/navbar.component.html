@@ -6,8 +6,9 @@
 </div>
 <nav>
   <ul>
-    <!-- <li><img id="mojito" src="../../assets/mojito.png"></li> -->
-    <li routerLinkActive="active-link"><a routerLink="/drinks">Drinks</a></li>
+    <li *ngIf="authService.admin" routerLinkActive="active-link"><a routerLink="/admin">Admin</a></li>
+    <li *ngIf="authService.admin"><img id="mojito" src="../../assets/mojito.png"></li>
+    <li routerLinkActive="active-link"><a routerLink="/drinks/my">Drinks</a></li>
     <li><img id="shaker" src="../../assets/shaker.png"></li>
     <li routerLinkActive="active-link"><a routerLink="/mix">Mix</a></li>
     <li><img id="bottles" src="../../assets/bottles.png"></li>
