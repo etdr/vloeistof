@@ -16,7 +16,7 @@
 
 .ingredientsField {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -39,22 +39,24 @@ mat-form-field {
 }
 
 #drinkName {
-  width: 25vw;
+  width: 400px;
   text-align: center;
 }
 
 #ingredient-add1 {
-  width: 15vw;
+  width: 400px;
   text-align: center;
+  margin-right: 4px;
 }
 
 #ingredient-add2 {
-  width: 15vw;
+  width: 400px;
   text-align: center;
+  margin-left: 4px;
 }
 
 #instructionsSize {
-  width: 25vw;
+  width: 400px;
   text-align: center;
 }
 
@@ -114,4 +116,18 @@ textarea {
   textarea {
     color: white;
     font-family: var(--font-four);
+  }
+
+  .drink-button {
+    width: 350px;
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #hearty {
+    padding-left: 10px;
   }

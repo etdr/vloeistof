@@ -82,8 +82,9 @@
     </div>
 
     <div class="favoriting">
-        <h3>favorite?</h3>
-        <input type="checkbox" [checked]="favorite" (change)="favorite = !favorite" name="favorite-checkbox">
+        <button mat-raised-button class="drink-button" (click)="favorite = !favorite">
+            <span>Add This Drink To Favorites?</span><mat-icon id="hearty">{{favorite ? "favorite" : "favorite_border"}}</mat-icon>
+        </button>
     </div>
 
     <div class="addDrinkButton">
