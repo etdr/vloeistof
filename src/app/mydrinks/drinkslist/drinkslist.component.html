@@ -15,17 +15,31 @@
 
       <div id="edit-buttons" *ngIf="d.userId == authService.userId || authService.admin">
 
-        <button mat-raised-button (click)="favoriteDrink(d)">
-          toggle favorite (currently {{d.favorite ? 'true' : 'false'}})
+        <button mat-raised-button class="drink-button" (click)="favoriteDrink(d)">
+          <!-- toggle favorite (currently {{d.favorite ? 'true' : 'false'}}) -->
+          <mat-icon>{{d.favorite ? "favorite" : "favorite_border"}}</mat-icon>
         </button>
 
-        <button mat-raised-button>
-          <mat-icon (click)="openDialog(d)">edit</mat-icon>
+        <button mat-raised-button class="drink-button" (click)="openDialog(d)">
+          <mat-icon>edit</mat-icon>
         </button>
-        <button mat-raised-button (click)="openConfirmDialog(d.id)">delete drink</button>
+
+        <a target="_blank" href={{getTwitterLink(d.name)}}> 
+          <button mat-raised-button class="drink-button">
+            <mat-icon>share</mat-icon>
+          </button>
+        </a>
+
+        <button mat-raised-button class="drink-button" (click)="openPostbox(d)">
+          <mat-icon>chat</mat-icon>
+        </button>
+
+        <button mat-raised-button class="drink-button" (click)="openConfirmDialog(d.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </div>
 
-      <app-postbox [drinkId]="d.id"></app-postbox> 
+      <!-- <app-postbox [drinkId]="d.id"></app-postbox>  -->
       <!-- line 28 is calling postbox component -->
 
     </mat-card-content>

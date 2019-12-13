@@ -24,6 +24,10 @@ class Response {
   }
 }
 
+class Username {
+  username: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -85,5 +89,12 @@ export class AuthService {
     this.admin = false;
     this.router.navigateByUrl("/login");
   }
+
+
+  getUsername(userId: number) {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.token);
+    return this.http.get<Username>(BASEURL+"/"+userId.toString(), httpOptions);
+  }
+
 
 }
