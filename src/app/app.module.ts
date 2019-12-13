@@ -86,11 +86,9 @@ import { environment } from '../environments/environment';
   entryComponents: [
     ModifyDrinkDialog,
     ConfirmDeleteDialog,
-
     PostDialogue,
-
-    AddIngDialog
-
+    AddIngDialog,
+    PostboxComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
