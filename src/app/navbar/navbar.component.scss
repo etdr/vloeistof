@@ -128,7 +128,9 @@ li a {
 @media screen and (max-width: 900px) {
 
   nav {
+    //display: block;
     justify-content: center;
+    //overflow: scroll;
   }
 
   .header {
@@ -136,5 +138,9 @@ li a {
     border-bottom-right-radius: 0;
   }
 
+  #cosmo,#marg {
+    height: 50px;
+    padding: 10px;
+  }
 
 }

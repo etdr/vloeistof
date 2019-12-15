@@ -8,10 +8,11 @@
 }
 
 .drinkNameField {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    //display: flex;
+    //flex-flow: column nowrap;
+    //justify-content: center;
+    //align-items: center;
+    margin-top: 2rem;
 }
 
 .ingredientsField {
@@ -88,6 +89,7 @@ mat-form-field {
   h2 {
       color: var(--lime);
       font-family: var(--font-two);
+      font-size: 2rem;
   }
 
   #mixButton {
@@ -104,7 +106,10 @@ mat-form-field {
     border: 1px solid var(--teal);
     border-radius: 10px;
     font-family: var(--font-two);
-    width: 300px;
+    font-size: 1.4rem;
+    //width: 300px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   textarea {
@@ -112,16 +117,76 @@ mat-form-field {
     font-family: var(--font-four);
   }
 
+  .inline-header {
+    display: inline;
+    margin-right: 2rem;
+  }
+
   .drink-button {
-    width: 350px;
+    //width: 350px;
     height: 50px;
-    display: flex;
-    flex-flow: row nowrap;
+    display: inline-block;
+    //flex-flow: row nowrap;
     justify-content: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: var(--teal);
+    color: var(--darkPlum);
+  }
+
+  .inline-mff {
+    display: inline-block;
   }
 
   #hearty {
-    padding-left: 10px;
+    //padding-left: 10px;
   }
+
+  .mat-chip {
+    background-color: var(--teal);
+    color: var(--darkPlum);
+    font-size: 2rem;
+    padding: 1rem;
+  }
+
+  .mat-standard-chip.mat-chip-with-trailing-icon {
+    padding: 1.2rem;
+    border-bottom: solid 4px var(--lime);
+  }
+
+
+@media screen and (max-width: 900px) {
+
+  .drinkNameField {
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center;
+  
+    .inline-header {
+      margin-right: 0;
+    }
+  }
+
+  #drinkName {
+    width: auto;
+    padding: 0; 
+  }
+
+  .mat-form-field {
+    width: 60%;
+    &#ingredient-add1 {
+      width: 60%;
+    }
+    &#ingredient-add2 {
+      width: 60%;
+    }
+  }
+
+  .favoriting {
+    text-align: center;
+  }
+
+
+
+
+}
