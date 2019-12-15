@@ -68,3 +68,19 @@ mat-card-title-group {
     justify-content: center;
     align-items: center;
 }
+
+mat-button-toggle {
+    background-color: var(--darkPlum);
+    color: var(--lime);
+    // border: 1px solid var(--teal);
+    border-radius: 10px;
+    font-family: var(--font-two);
+}
+
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+    background-color: var(--darkPlum);
+    color: var(--lime);
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    font-family: var(--font-two);
+}
