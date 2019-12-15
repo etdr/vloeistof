@@ -59,6 +59,10 @@ export class PostboxComponent implements OnInit {
       }
     });
   }
+
+  removePost(i: number) {
+    this.posts.splice(i, 1);
+  }
 }
 
 

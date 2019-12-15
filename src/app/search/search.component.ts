@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
 
   term: string = "";
   results: Drink[] = [];
+  searchType: string = "n";
 
   constructor(private searchService: SearchService,
               private drinksService: DrinksService,
@@ -58,15 +59,44 @@ export class SearchComponent implements OnInit {
           d.name = cdo.strDrink;
           d.thumbUrl = cdo.strDrinkThumb;
           d.cDBId = parseInt(cdo.idDrink,10);
+          d.ingredients = [];
           drinkResults.push(d)
         }
-      
+        this.results = drinkResults;
     });
   }
 
   addDrink (drink) {
-    this.drinksService.addDrink(drink).subscribe(() => undefined);
-    this.router.navigateByUrl('/drinks/my');
+    this.drinksService.addDrink(drink).subscribe(() => {this.router.navigateByUrl('/drinks/my');});
+    
+  }
+
+  fetchDrinkData(d: Drink) {
+    if (!d.instructions) {
+      this.searchService.getDrink(d.cDBId).subscribe(res => {
+        if (d.ingredients.length === 0) {
+          let newings = [];
+          for (let i = 0; i < 15; i++) {
+            if (res['strIngredient'+(i+1).toString()]) {
+              newings.push({
+                amount: res['strMeasure'+(i+1).toString()],
+                name: res['strIngredient'+(i+1).toString()],
+                id: 0
+              })
+            }
+          }
+          d.ingredients = newings;
+        }
+        if (!d.instructions) {
+
+          d.instructions = res.strInstructions;
+        }
+      });
+    }
+  }
+
+  fetchInstructions(dId: Drink) {
+
   }
 
 }
