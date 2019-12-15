@@ -1,16 +1,16 @@
 <div class="searchPage">
     <div class="searchField">
         <div class="searchToggle">
-            <mat-button-toggle-group aria-labelledby="searchKind">
-                <mat-button-toggle>Name</mat-button-toggle>
-                <mat-button-toggle>Ingredient</mat-button-toggle>
+            <mat-button-toggle-group [(ngModel)]="searchType" aria-labelledby="searchKind">
+                <mat-button-toggle value="n">Name</mat-button-toggle>
+                <mat-button-toggle value="i">Ingredient</mat-button-toggle>
             </mat-button-toggle-group>
         </div>
         <div class="searchInput">
             <input matInput type="search" id="searchbox" placeholder="Enter Your Search Term Here" [(ngModel)]="term">
         </div>
         <div class="searchButton">
-            <button mat-raised-button (click)="searchByName()">search</button>
+            <button mat-raised-button (click)="searchType === 'n' ? searchByName() : searchByIngredient()">search</button>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
             <img mat-card-image src={{d.thumbUrl}}>
         </mat-card-title-group>
         <mat-card-content>
-            <mat-expansion-panel>
+            <mat-expansion-panel (opened)="fetchDrinkData(d)">
                 <mat-expansion-panel-header>
                     Ingredients
                 </mat-expansion-panel-header>
@@ -33,7 +33,7 @@
                     </mat-list-item>
                 </mat-list>
             </mat-expansion-panel>
-            <mat-expansion-panel>
+            <mat-expansion-panel (opened)="fetchDrinkData(d)">
                 <mat-expansion-panel-header>
                     Instructions
                 </mat-expansion-panel-header>
