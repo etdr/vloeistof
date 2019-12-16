@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Inject, NgZone } from '@angular/core';
 
+import {take} from 'rxjs/operators';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { PostsService } from './posts.service';
 import { Post, Drink } from '../../../types';
 import { tap } from 'rxjs/operators';
@@ -26,7 +28,7 @@ export class PostboxComponent implements OnInit {
   
   posts: Post[] = [];
 
-  constructor(private postsService: PostsService, public dialog: MatDialog,
+  constructor(private postsService: PostsService, public dialog: MatDialog, 
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {
@@ -74,13 +76,21 @@ export class PostDialogue{
   title: string;
   content: string;
 
-  constructor(public dRef: MatDialogRef<PostDialogue>,
+  constructor(public dRef: MatDialogRef<PostDialogue>, private _ngZone: NgZone, 
               @Inject(MAT_DIALOG_DATA) public data: {post: Post} | undefined) {
 
   }
 
   onNoClick() {
     this.dRef.close()
+  }
+
+  @ViewChild('autosize', {static: false}) autosize: CdkTextareaAutosize;
+
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this._ngZone.onStable.pipe(take(1))
+        .subscribe(() => this.autosize.resizeToFitContent(true));
   }
 
 }
