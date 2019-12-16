@@ -1,10 +1,13 @@
-<h2>Admin Panel</h2>
+<div class="title-h2">
+  <h2>Admin Panel</h2>
+</div>
 
 <ul>
   <li *ngFor="let u of users">
     <h3>{{u.username}}</h3>
     <p>{{u.email}}</p>
     <p>{{u.admin ? 'admin' : ''}}</p>
-    <button mat-raised-button (click)="deleteUser(u.id)">delete user</button>
+    <button mat-raised-button (click)="deleteUser(u.id)">Delete user</button>
+    <button mat-raised-button (click)="deleteUserPlus(u.id)">Delete user and all content</button>
   </li>
 </ul>

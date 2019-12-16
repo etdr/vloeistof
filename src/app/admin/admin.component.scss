@@ -1,0 +1,41 @@
+
+.title-h2 {
+  font-family: var(--font-two);
+  color: var(--lime);
+  font-size: 2rem;
+  text-align: center;
+  
+  h2 {
+    text-shadow: 0 0 10px var(--lime);
+  }
+}
+
+
+
+ul {
+
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+
+
+  li {
+    border-bottom: solid var(--lime) 6px;
+    border-radius: 20px;
+    background-color: var(--teal);
+    color: var(--darkPlum);
+    padding: 2rem;
+    margin: 2rem;
+
+    h3,p {
+      color: var(--darkPlum);
+    }
+
+    button {
+      display: block;
+      background-color: var(--darkPlum);
+      color: red;
+      margin-bottom: 1rem;
+    }
+  }
+}

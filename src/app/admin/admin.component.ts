@@ -27,4 +27,9 @@ export class AdminComponent implements OnInit {
     this.adminService.deleteUser(uId)
       .subscribe(r => console.log(r));
   }
+
+  deleteUserPlus(uId) {
+    this.adminService.deleteUserPlus(uId)
+      .subscribe(r => console.log(r));
+  }
 }

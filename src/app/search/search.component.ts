@@ -60,7 +60,7 @@ export class SearchComponent implements OnInit {
           d.thumbUrl = cdo.strDrinkThumb;
           d.cDBId = parseInt(cdo.idDrink,10);
           d.ingredients = [];
-          drinkResults.push(d)
+          drinkResults.push(d);
         }
         this.results = drinkResults;
     });
@@ -82,7 +82,7 @@ export class SearchComponent implements OnInit {
                 amount: res['strMeasure'+(i+1).toString()],
                 name: res['strIngredient'+(i+1).toString()],
                 id: 0
-              })
+              });
             }
           }
           d.ingredients = newings;
