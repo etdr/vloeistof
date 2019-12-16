@@ -1,10 +1,33 @@
 <div id="navbar">
-<div class="header">
-<img id=cosmo src="../../assets/cosmopolitan.png">
-<p id="headerText">Vloeistof</p>
-<img id=marg src="../../assets/marg.png">
+  <div class="header">
+    <img id=cosmo src="../../assets/cosmopolitan.png">
+    <p id="headerText">Vloeistof</p>
+    <img id=marg src="../../assets/marg.png">
+  </div>
+</div>  
+<div class="menuBar">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button id="drinkMenu" mat-menu-item [matMenuTriggerFor]="drinks">Drinks</button>
+    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/mix">Mix</a></button>
+    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/search">Search</a></button>
+    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/credits">Credits</a></button>
+    <button mat-menu-item *ngIf="authService.admin" routerLinkActive="active-link"><a routerLink="/admin">Admin</a></button>
+    <button id="drinkMenu" mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+  <mat-menu #drinks="matMenu">
+    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/my">My Drinks</a></button>
+    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/created">Created Drinks</a></button>
+    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/api">Saved drinks</a></button>
+    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/favorite">Favorite Drinks</a></button>
+    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/all">All Drinks</a></button>
+  </mat-menu>
 </div>
-<nav>
+
+
+<!-- <nav>
   <ul>
     <li *ngIf="authService.admin" routerLinkActive="active-link"><a routerLink="/admin">Admin</a></li>
     <li *ngIf="authService.admin"><img id="mojito" src="../../assets/mojito.png"></li>
@@ -13,8 +36,12 @@
     <li routerLinkActive="active-link"><a routerLink="/mix">Mix</a></li>
     <li><img id="bottles" src="../../assets/bottles.png"></li>
     <li routerLinkActive="active-link"><a routerLink="/search">Search</a></li>
-    <!-- <li><img id="bar" src="../../assets/bar.png"></li> -->
-
+     <li><img id="bar" src="../../assets/bar.png"></li>
   </ul>
 </nav>
-</div>
+</div> -->
+  <!-- <div>
+    <button mat-button [matMenuTriggerFor]="">Menu</button>
+    
+  </div>
+</div> -->

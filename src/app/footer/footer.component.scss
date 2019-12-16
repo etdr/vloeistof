@@ -8,6 +8,19 @@ footer {
   height: 40px;
 }
 
+.footerText {
+  display: flex;
+  // border: 1px solid black;
+  width: 45%;
+  font-family: var(--font-two);
+  margin: auto;
+  color: var(--plum)
+}
+a {
+  text-decoration: none;
+  color: var(--darkPlum);
+}
+
 #beach {
   height: 40px;
 }
