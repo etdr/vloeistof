@@ -30,7 +30,7 @@ import { CreditsComponent } from './credits/credits.component';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrinksListComponent, ModifyDrinkDialog, ConfirmDeleteDialog } from './mydrinks/drinkslist/drinkslist.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent, ConfirmUserDelete } from './admin/admin.component';
 import { PostComponent } from './mydrinks/drinkslist/postbox/post.component';
 
 import { PostboxComponent, PostDialogue } from './mydrinks/drinkslist/postbox/postbox.component';
@@ -60,7 +60,8 @@ import { environment } from '../environments/environment';
     AdminComponent,
     PostComponent,
     PostboxComponent,
-    PostDialogue
+    PostDialogue,
+    ConfirmUserDelete
   ],
   imports: [
     BrowserModule,
@@ -90,7 +91,8 @@ import { environment } from '../environments/environment';
     AddIngDialog,
     PostboxComponent,
     PostDialogue,
-    AddIngDialog
+    AddIngDialog,
+    ConfirmUserDelete
   ],
   providers: [],
   bootstrap: [AppComponent]

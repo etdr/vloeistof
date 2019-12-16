@@ -5,6 +5,8 @@ import { SearchService } from '../search.service';
 import { DrinksService } from '../drinks.service';
 import { Drink } from '../types';
 
+import { of } from 'rxjs';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -67,7 +69,41 @@ export class SearchComponent implements OnInit {
   }
 
   addDrink (drink) {
-    this.drinksService.addDrink(drink).subscribe(() => {this.router.navigateByUrl('/drinks/my');});
+    
+    if (!drink.instructions) {
+      this.searchService.getDrink(drink.cDBId).subscribe(res => {
+        if (drink.ingredients.length === 0) {
+          let newings = [];
+          for (let i = 0; i < 15; i++) {
+            if (res['strIngredient'+(i+1).toString()]) {
+              newings.push({
+                amount: res['strMeasure'+(i+1).toString()],
+                name: res['strIngredient'+(i+1).toString()],
+                id: 0
+              });
+            }
+          }
+          drink.ingredients = newings;
+        }
+        if (!drink.instructions) {
+
+          drink.instructions = res.strInstructions;
+        }
+      
+
+        this.drinksService.addDrink(drink).subscribe(() => {
+          this.router.navigateByUrl('/drinks/my');
+        });
+      });
+    }
+
+
+    
+    else {
+      this.drinksService.addDrink(drink).subscribe(() => {
+        this.router.navigateByUrl('/drinks/my');
+      });
+    }
     
   }
 
