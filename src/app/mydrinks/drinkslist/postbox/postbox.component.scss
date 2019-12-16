@@ -2,6 +2,15 @@ div#postbox {
   background: var(--orange);
   border-color: var(--orange);
   color: var(--darkPlum);
+
+  button {
+    background: var(--darkPlum);
+    color: var(--orange);
+
+    &:hover {
+      color: var(--teal);
+    }
+  }
 }
 
 // ::ng-deep div#postbox {

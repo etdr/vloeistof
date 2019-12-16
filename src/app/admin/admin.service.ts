@@ -34,4 +34,8 @@ export class AdminService {
     return this.http.delete(BASEURL+'/'+uId.toString(), httpOptions);
   }
   
+  deleteUserPlus(uId: number) {
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
+    return this.http.delete(BASEURL+"/cascade/"+uId.toString(), httpOptions);
+  }
 }

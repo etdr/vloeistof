@@ -5,6 +5,22 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
+
+    button {
+        background-color: var(--orange);
+        color: var(--darkPlum);
+    }
+
+    mat-button-toggle {
+        background-color: var(--orange);
+        color: var(--darkPlum);        
+    }
+
+    .mat-button-toggle-checked {
+        background-color: var(--darkPlum);
+        color: var(--teal);
+        border: solid var(--lime) 2px;
+    }
 }
 
 input {
@@ -19,7 +35,7 @@ input {
 
 button {
     height: 45px;
-    width: 150px;
+    //width: 150px;
 }
 
 #searchbox {
@@ -39,6 +55,8 @@ mat-card {
     align-items: center;
     margin-left: 10px;
     margin-bottom: 10px;
+    background-color: var(--teal);
+    color: var(--darkPlum);
 }
 
 mat-card-title-group {
@@ -47,6 +65,20 @@ mat-card-title-group {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+
+    mat-card-title {
+        color: var(--darkPlum);
+        font-family: var(--font-two);
+    }
+}
+
+mat-expansion-panel {
+    background-color: var(--darkPlum);
+    color: var(--teal);
+
+    p {
+        color: var(--teal);
+    }
 }
 
 .searchResults {
@@ -67,4 +99,36 @@ mat-card-title-group {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+}
+
+// mat-button-toggle {
+//     background-color: var(--darkPlum);
+//     color: var(--lime);
+//     // border: 1px solid var(--teal);
+//     border-radius: 10px;
+//     font-family: var(--font-two);
+// }
+
+// .mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+//     background-color: var(--darkPlum);
+//     color: var(--lime);
+//     border: 1px solid var(--teal);
+//     border-radius: 10px;
+//     font-family: var(--font-two);
+
+mat-card-content {
+    button {
+        margin-top: 1.2rem;
+        background-color: var(--darkPlum);
+        color: var(--lime);
+        font-family: var(--font-two);
+    }
+
+    .right-aligned-div {
+        text-align: center;
+        button {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 }

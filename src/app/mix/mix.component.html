@@ -1,8 +1,8 @@
 <div class="mixField">
 
     <div class="drinkNameField">
-        <h2>Drink Name</h2>
-        <mat-form-field id="drinkName">
+        <h2 class="inline-header">Drink Name</h2>
+        <mat-form-field id="drinkName" class="inline-mff">
             <input matInput type="text" placeholder="Enter Your Drink Name Here" name="drinkName" [(ngModel)]="drinkName">
         </mat-form-field>
     </div>
@@ -82,8 +82,9 @@
     </div>
 
     <div class="favoriting">
+        <h2 class="inline-header">Add this drink to favorites?</h2>
         <button mat-raised-button class="drink-button" (click)="favorite = !favorite">
-            <span>Add This Drink To Favorites?</span><mat-icon id="hearty">{{favorite ? "favorite" : "favorite_border"}}</mat-icon>
+            <mat-icon id="hearty">{{favorite ? "favorite" : "favorite_border"}}</mat-icon>
         </button>
     </div>
 

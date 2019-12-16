@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../../auth/auth.service';
 import { PostsService } from './posts.service';
 import { PostDialogue } from './postbox.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Post } from '../../../types';
+import { ConfirmDeleteDialog } from '../drinkslist.component';
 
 
 const shortMonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -23,6 +24,8 @@ export class PostComponent implements OnInit {
   @Input() content: string;
   @Input() date: string;
   username: string;
+
+  @Output() public onDelete: EventEmitter<any> = new EventEmitter();
 
   constructor(private authService: AuthService,
               private postsService: PostsService,
@@ -55,6 +58,14 @@ export class PostComponent implements OnInit {
   }
 
   deletePost() {
+    const dRef = this.dialog.open(ConfirmDeleteDialog, {
+      width: "600px"
+    });
 
+    dRef.afterClosed().subscribe(res => {
+      if (res) this.postsService.deletePost(this.id).subscribe(r => console.log(r));
+      this.onDelete.emit();
+    });
+  
   }
 }

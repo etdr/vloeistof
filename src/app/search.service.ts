@@ -33,7 +33,7 @@ export class SearchService {
     if (!term.trim()) {
       return of([]);
     }
-    return this.http.get<CDBDrinksObject>(BASEURL+'search.php?s='+encodeURIComponent(term)).pipe(map(x => x.drinks))
+    return this.http.get<CDBDrinksObject>(BASEURL+'search.php?s='+encodeURIComponent(term)).pipe(map(x => x.drinks));
 
   }
 
@@ -41,8 +41,12 @@ export class SearchService {
     if (!term.trim()) {
       return of ([]);
     }
-    return this.http.get<CDBDrinkMinObject>(BASEURL+'filter.php?i='+encodeURIComponent(term)).pipe(map(x => x.drinks))
+    return this.http.get<CDBDrinkMinObject>(BASEURL+'filter.php?i='+encodeURIComponent(term)).pipe(map(x => x.drinks));
       
+  }
+
+  getDrink(cDBId: number) {
+    return this.http.get<CDBDrinksObject>(BASEURL+"lookup.php?i="+cDBId.toString()).pipe(map(x => x.drinks[0]));
   }
 
 }

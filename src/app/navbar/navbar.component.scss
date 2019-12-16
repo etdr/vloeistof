@@ -1,6 +1,6 @@
 div#navbar {
   display: flex;
-  width: 100vw;
+  //width: 100vw;
   background: var(--plum);
   flex-wrap: wrap;
   align-items: center;
@@ -71,13 +71,19 @@ nav {
 //   // border: 1px solid purple;
 // }
 
-// li {
-//   display: inline;
-//   padding: 15px;
-//   font-family: var(--font-two);
-//   display: flex;
-//   flex-wrap: nowrap;
-// }
+
+
+li {
+  display: inline;
+  padding: 15px;
+  font-family: var(--font-two);
+  display: flex;
+  flex-wrap: nowrap;
+
+  &.rlink:hover {
+    border-bottom: solid var(--orange) 8px;
+  }
+}
 
 a {
   // display: flex;
@@ -142,7 +148,9 @@ mat-menu {
 @media screen and (max-width: 900px) {
 
   nav {
+    //display: block;
     justify-content: center;
+    //overflow: scroll;
   }
 
   .header {
@@ -150,5 +158,9 @@ mat-menu {
     border-bottom-right-radius: 0;
   }
 
+  #cosmo,#marg {
+    height: 50px;
+    padding: 10px;
+  }
 
 }
