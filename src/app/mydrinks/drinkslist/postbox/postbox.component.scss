@@ -22,3 +22,15 @@ div#postbox {
   border: solid var(--darkPlum) 10px;
   //color: var(--orange);
 }
+
+mat-form-field {
+  width: 400px;
+  text-align: center;
+}
+
+.inputPostDialogue {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
