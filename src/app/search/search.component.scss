@@ -51,7 +51,7 @@ mat-card {
     width: 300px;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -61,6 +61,7 @@ mat-card {
 
 mat-card-title-group {
     width: 300px;
+    // margin-top: 0px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -70,6 +71,12 @@ mat-card-title-group {
         color: var(--darkPlum);
         font-family: var(--font-two);
     }
+}
+
+#cdk-accordion-child-0 {
+    position: absolute;
+    background-color: pink;
+    color: pink;
 }
 
 mat-expansion-panel {
