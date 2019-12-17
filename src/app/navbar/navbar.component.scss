@@ -4,6 +4,7 @@ div#navbar {
   background: var(--plum);
   flex-wrap: wrap;
   align-items: center;
+  border-bottom: 10px solid var(--darkPlum);
 }
 
 
@@ -19,6 +20,7 @@ div#navbar {
   justify-content: center; //acutally centers this from left to right on the page...don't change this.
   align-items: center; //centers it from top to bottom
   flex-grow: 1;
+  // border-bottom: 10px solid var(--darkPlum);
   
 }
 
@@ -40,6 +42,15 @@ div#navbar {
 
 .menuBar {
   background-color: var(--plum);
+  // border: 1px solid paleturquoise;
+
+}
+
+.menuButton {
+  // border: 1px solid yellow;
+}
+.mat-icon {
+  // border: 1px solid white;
 }
 
 mat-icon {
