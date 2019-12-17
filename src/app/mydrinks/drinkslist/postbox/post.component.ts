@@ -52,8 +52,13 @@ export class PostComponent implements OnInit {
       if (res) {
         this.postsService.modifyPost(res)
           .subscribe(() => {
- 
+            
           })
+        this.title = res.title;
+        this.content = res.content;
+        let d = new Date();
+        this.date = `${d.getFullYear()} ${shortMonthNames[d.getMonth()]} ${d.getDate()}`;
+        
       }
     })
   }

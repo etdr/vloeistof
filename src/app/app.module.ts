@@ -38,6 +38,7 @@ import { PostboxComponent, PostDialogue } from './mydrinks/drinkslist/postbox/po
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DonateComponent } from './donate/donate.component';
 
 
 
@@ -62,7 +63,8 @@ import { environment } from '../environments/environment';
     PostComponent,
     PostboxComponent,
     PostDialogue,
-    ConfirmUserDelete
+    ConfirmUserDelete,
+    DonateComponent
   ],
   imports: [
     BrowserModule,

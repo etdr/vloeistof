@@ -60,7 +60,7 @@ export class AuthService {
       tap(res => this.userId = res.user.id),
       tap(res => localStorage.setItem("admin", res.user.admin ? "true" : "false")),
       tap(res => this.admin = res.user.admin),
-      finalize(() => this.router.navigateByUrl("/drinks"))
+      finalize(() => this.router.navigateByUrl("/drinks/my"))
     );
   }
 
@@ -77,7 +77,7 @@ export class AuthService {
       tap(res => this.userId = res.user.id),
       tap(res => localStorage.setItem("admin", res.user.admin ? "true" : "false")),
       tap(res => this.admin = res.user.admin),
-      finalize(() => this.router.navigateByUrl("/drinks"))
+      finalize(() => this.router.navigateByUrl("/drinks/my"))
     );
   }
 

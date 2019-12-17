@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -15,9 +16,13 @@ export class AuthComponent implements OnInit {
   email: string = "";
   password: string = "";
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
+    if (this.authService.token) {
+      this.router.navigateByUrl('/drinks/my');
+    }
   }
 
   submit () {
