@@ -28,7 +28,7 @@ div#navbar {
 }
 
 #headerText {
-  font-size: 3rem;
+  font-size: 4rem;
   // border: 1px solid black;
   //height: 75px;
 }
@@ -101,8 +101,22 @@ a {
   font-size: 1rem;
 }
 
-mat-menu {
+::ng-deep .mat-menu-content {
   background-color: var(--orange);
+
+  button {
+    font-family: var(--font-two);
+  }
+
+  a {
+    
+    button {
+      font-family: var(--font-two);
+      color: var(--plum);
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  }
 }
 
 // #mojito {
@@ -151,11 +165,17 @@ mat-menu {
     //display: block;
     justify-content: center;
     //overflow: scroll;
+    height: 50px;
+  }
+
+  #headerText {
+    font-size: 3rem;
   }
 
   .header {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    height: 70px;
   }
 
   #cosmo,#marg {
@@ -164,3 +184,4 @@ mat-menu {
   }
 
 }
+

@@ -73,3 +73,9 @@ nav {
   background: var(--orange); 
 }
 
+
+@media screen and (max-width: 500px) {
+  .tabsNav {
+    display: none;
+  }
+}

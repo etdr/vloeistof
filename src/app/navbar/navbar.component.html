@@ -11,18 +11,18 @@
   </button>
   <mat-menu #menu="matMenu">
     <button id="drinkMenu" mat-menu-item [matMenuTriggerFor]="drinks">Drinks</button>
-    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/mix">Mix</a></button>
-    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/search">Search</a></button>
-    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/credits">Credits</a></button>
-    <button mat-menu-item *ngIf="authService.admin" routerLinkActive="active-link"><a routerLink="/admin">Admin</a></button>
+    <a routerLink="/mix"><button mat-menu-item routerLinkActive="active-link">Mix</button></a>
+    <a routerLink="/search"><button mat-menu-item routerLinkActive="active-link">Search</button></a>
+    <a routerLink="/credits"><button mat-menu-item routerLinkActive="active-link">Credits</button></a>
+    <a routerLink="/admin"><button mat-menu-item *ngIf="authService.admin" routerLinkActive="active-link">Admin</button></a>
     <button id="drinkMenu" mat-menu-item (click)="logout()">Logout</button>
   </mat-menu>
   <mat-menu #drinks="matMenu">
-    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/my">My Drinks</a></button>
-    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/created">Created Drinks</a></button>
-    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/api">Saved drinks</a></button>
-    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/favorite">Favorite Drinks</a></button>
-    <button mat-menu-item routerLinkActive="active-link"><a routerLink="/drinks/all">All Drinks</a></button>
+    <a routerLink="/drinks/my"><button mat-menu-item routerLinkActive="active-link">My Drinks</button></a>
+    <a routerLink="/drinks/created"><button mat-menu-item routerLinkActive="active-link">Created Drinks</button></a>
+    <a routerLink="/drinks/api"><button mat-menu-item routerLinkActive="active-link">Saved drinks</button></a>
+    <a routerLink="/drinks/favorite"><button mat-menu-item routerLinkActive="active-link">Favorite Drinks</button></a>
+    <a routerLink="/drinks/all"><button mat-menu-item routerLinkActive="active-link">All Drinks</button></a>
   </mat-menu>
 </div>
 
