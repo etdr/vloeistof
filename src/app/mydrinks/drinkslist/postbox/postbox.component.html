@@ -1,4 +1,4 @@
 <div id="postbox">
   <button mat-raised-button (click)="openDialog()">Add a comment...</button>
-  <app-post *ngFor="let p of posts; let i = index" [id]="p.id" [userId]="p.userId" [title]="p.title" [content]="p.content" [date]="p.updatedAt" (onDelete)="removePost(i)"></app-post>
+  <app-post *ngFor="let p of posts; let i = index" [id]="p.id" [userId]="p.userId" [title]="p.title" [content]="p.content" [date]="p.updatedAt" [drinkId]="p.drinkId" (onDelete)="removePost(i)"></app-post>
 </div>

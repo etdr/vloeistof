@@ -97,6 +97,7 @@ export class Post {
   content: string;
   drinkId: number;
   userId: number;
+  date: string;
 }
 
 

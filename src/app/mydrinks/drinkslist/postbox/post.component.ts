@@ -23,11 +23,12 @@ export class PostComponent implements OnInit {
   @Input() title: string;
   @Input() content: string;
   @Input() date: string;
+  @Input() drinkId: number;
   username: string;
 
   @Output() public onDelete: EventEmitter<any> = new EventEmitter();
 
-  constructor(private authService: AuthService,
+  constructor(public authService: AuthService,
               private postsService: PostsService,
               public dialog: MatDialog) { }
 
@@ -47,7 +48,7 @@ export class PostComponent implements OnInit {
     });
 
     dRef.afterClosed().subscribe(res => {
-      console.log(res);
+      console.log(this.drinkId);
       if (res) {
         this.postsService.modifyPost(res)
           .subscribe(() => {

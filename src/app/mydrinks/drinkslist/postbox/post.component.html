@@ -5,7 +5,7 @@
     <p class="comment-caption"><em>{{username}} on {{date}}</em></p>
   </div>
   <div class="buttons" *ngIf="authService.admin || authService.userId === userId">
-    <button mat-raised-button class="edit-comment-button" (click)="openEdit({title:title, content:content, id:id, userId:userId, date:date})">
+    <button mat-raised-button class="edit-comment-button" (click)="openEdit({title:title, content:content, id:id, userId:userId, date:date, drinkId:drinkId})">
       <mat-icon>edit</mat-icon>
     </button>
     <button mat-raised-button (click)="deletePost()">
