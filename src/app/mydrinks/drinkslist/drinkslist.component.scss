@@ -2,15 +2,36 @@ body {
   color: white;
 }
 
-// p {
-//   color: white;
-// }
-
 .createdDrinksDiv {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100vw;
+  justify-content: center;
+  // align-items: space-around;
 }
+
+.myDrinkCard {
+  // padding-top: 10px;
+  // padding-bottom: 20px;
+  margin-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 300px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--teal);
+border: 2px solid var(--plum);
+border-radius: 10px;
+font-family: var(--font-four);
+color: var(--plum);
+}
+
+
 
 #createdDrinksH1 {
   font-family: var(--font-four);
@@ -21,17 +42,18 @@ body {
   width: 25%;
 }
 
-.myDrinkCard {
-  // border: 1px solid blueviolet;
-  width: 15%;
-  margin: 20px;
-  background-color: var(--teal);
-  border: 2px solid var(--plum);
-  border-radius: 10px;
-  font-family: var(--font-four);
-  color: var(--plum);
+// .myDrinkCard {
+//   // border: 1px solid blueviolet;
+//   width: 15%;
+//   margin: 20px;
+//   background-color: var(--teal);
+//   border: 2px solid var(--plum);
+//   border-radius: 10px;
+//   font-family: var(--font-four);
+//   color: var(--plum);
   
-}
+// }
+
 
 .myDrinkTitle {
   // border: 1px solid black;

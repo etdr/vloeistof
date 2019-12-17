@@ -1,15 +1,15 @@
 <div class="createdDrinksDiv">
   <mat-card class="myDrinkCard" *ngFor="let d of drinks">
     <mat-card-title class="myDrinkTitle">{{d.name}}</mat-card-title>
-    <mat-card-content class="myDrinksContent">
+      <mat-card-content class="myDrinksContent">
       <!-- input the ingredients and instructions -->
-      <h3>Ingredients</h3>
-      <ul>
-        <li *ngFor="let i of d.ingredients">{{i.amount}} <strong>{{i.name}}</strong></li>
-      </ul>
-      <br>
-      <h3>Instructions</h3>
-      <p>{{d.instructions}}</p>
+        <h3>Ingredients</h3>
+          <ul>
+            <li *ngFor="let i of d.ingredients">{{i.amount}} <strong>{{i.name}}</strong></li>
+          </ul>
+        <br>
+        <h3>Instructions</h3>
+        <p>{{d.instructions}}</p>
 
       <!-- <button mat-raised-button (click)="openDialog(d)">edit drink</button> -->
 
