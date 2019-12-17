@@ -1,7 +1,7 @@
 .authenticationField {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     padding-bottom: 50px;
 }
@@ -17,8 +17,27 @@
 // }
 
 .inputFields {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    // height: 250px;
+    align-items: space-between;
     color: var(--teal);
+    margin-bottom: 5px;
 }
+
+.userInput {
+
+}
+
+.emailInput {
+    margin-top: 10px;
+}
+
+.passwordInput {
+    margin-top: 10px;
+}
+
 #usernameInput {
     font-family: var(--font-four);
     color: var(--teal);
@@ -45,16 +64,16 @@ h2 {
     color: white;
 }
 
-.inputFields {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    height: 250px;
-    align-items: space-between;
-}
+// .inputFields {
+//     display: flex;
+//     flex-flow: column nowrap;
+//     justify-content: center;
+//     height: 250px;
+//     align-items: space-between;
+// }
 
 mat-form-field {
-    min-width: 25vw;
+    min-width: 300px;
     text-align: center;
 }
 
@@ -88,7 +107,7 @@ input {
 }
 
 button {
-    width: 200px;
+    // width: 200px;
     height: 50px;
 
 }
@@ -100,7 +119,7 @@ button {
     border-radius: 10px;
     font-family: var(--font-two);
     font-size: 1.4rem;
-    //width: 300px;
+    width: 300px;
     // margin-top: 2rem;
     // margin-bottom: 2rem;
 }
@@ -112,7 +131,7 @@ button {
     border-radius: 10px;
     font-family: var(--font-two);
     font-size: 1.4rem;
-    //width: 300px;
+    width: 200px;
     // margin-top: 2rem;
     // margin-bottom: 2rem;
 }
