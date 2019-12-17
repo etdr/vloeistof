@@ -12,8 +12,8 @@
         <input id="usernameInput" matInput type="text" placeholder="Username" name="username" [(ngModel)]="username">
       </mat-form-field>
     </div>
-    <div class="emailInput">
-      <mat-form-field *ngIf="!loginToggle">
+    <div class="emailInput" *ngIf="!loginToggle">
+      <mat-form-field >
         <input matInput type="email" placeholder="Email" *ngIf="!loginToggle" name="email" [(ngModel)]="email">
       </mat-form-field>
     </div>
