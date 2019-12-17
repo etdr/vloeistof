@@ -4,6 +4,7 @@ import { tap, finalize } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
 import { APIURL } from '../../environments/environment.prod';
+import { of } from 'rxjs';
 
 const BASEURL = APIURL+"/api/user";
 //const BASEURL = "http://localhost:3016/api/user";
@@ -92,6 +93,9 @@ export class AuthService {
 
 
   getUsername(userId: number) {
+    if (!userId) {
+      return of({username:"(deleted)"});
+    }
     httpOptions.headers = httpOptions.headers.set('Authorization', this.token);
     return this.http.get<Username>(BASEURL+"/"+userId.toString(), httpOptions);
   }
