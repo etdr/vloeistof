@@ -41,6 +41,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { DonateComponent } from './donate/donate.component';
 
+import { httpInterceptorProviders } from './interceptors/index';
+
 
 
 @NgModule({
@@ -100,7 +102,9 @@ import { DonateComponent } from './donate/donate.component';
     AddIngDialog,
     ConfirmUserDelete
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

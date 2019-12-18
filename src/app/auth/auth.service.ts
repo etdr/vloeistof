@@ -96,7 +96,7 @@ export class AuthService {
     if (!userId) {
       return of({username:"(deleted)"});
     }
-    httpOptions.headers = httpOptions.headers.set('Authorization', this.token);
+    //httpOptions.headers = httpOptions.headers.set('Authorization', this.token);
     return this.http.get<Username>(BASEURL+"/"+userId.toString(), httpOptions);
   }
 
