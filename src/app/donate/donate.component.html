@@ -1,1 +1,55 @@
-<p>donate works!</p>
+<div class="title-h2">
+  <h2>Donate to Vloeistof</h2>
+</div>
+
+<div id="amount-div" *ngIf="!clientSecret">
+  <div id="preset-amounts-div">
+    <button mat-raised-button class="preset-amount-button" (click)="setAmount(100)">$1</button>
+    <button mat-raised-button class="preset-amount-button" (click)="setAmount(200)">$2</button>
+    <button mat-raised-button class="preset-amount-button" (click)="setAmount(500)">$5</button>
+    <button mat-raised-button class="preset-amount-button" (click)="setAmount(1000)">$10</button>
+    <button mat-raised-button class="preset-amount-button" (click)="setAmount(2000)">$20</button>
+    <button mat-raised-button class="preset-amount-button" (click)="setAmount(10000)">$100</button>
+    <button mat-raised-button class="preset-amount-button" (click)="setAmount(100000)">$1000</button>
+  </div>
+  <mat-form-field>
+    <input matInput placeholder="or enter US dollar amount" [(ngModel)]="amount">
+  </mat-form-field>
+  <button mat-raised-button type="button" (click)="setAmount()">Enter card details</button>
+</div>
+
+
+<div id="payment-div" *ngIf="clientSecret && succeeded === undefined">
+
+  <h3>Donating ${{(amount/100).toFixed(2)}}</h3>
+
+  <label for="card-div">Card Details</label>
+  <div id="card-div">
+  </div>
+
+  <button mat-raised-button class="submit-button" (click)="submitPayment()">Submit</button>
+
+
+</div>
+
+<div id="success-div" *ngIf="succeeded">
+
+  <h1>THANK YOU FOR YOUR PATRONAGE</h1>
+
+  <a routerLink="/drinks/my">Back to Vloeistof</a>
+
+</div>
+<div id="failure-div" *ngIf="succeeded === false">
+
+  <p>Error: {{errortext}}</p>
+
+  <button mat-raised-button (click)="resetEverything()">Try again</button>
+
+</div>
+
+
+<div id="spinner-div" *ngIf="spin">
+
+  <mat-spinner></mat-spinner>
+
+</div>

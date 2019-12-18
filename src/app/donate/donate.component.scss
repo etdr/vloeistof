@@ -1,0 +1,157 @@
+
+button {
+  background-color: var(--darkPlum);
+  color: var(--lime);
+  border: 1px solid var(--teal);
+  border-radius: 10px;
+  font-family: var(--font-two);
+  font-size: 1.8rem;
+  padding: 1rem;
+}
+
+.mat-form-field {
+
+  color: var(--lime);
+  display: flex;
+
+
+  input {
+    color: var(--teal);
+    display: inline-block;
+  }
+
+  button {
+    display: inline-block;
+  }
+}
+
+
+.title-h2 {
+  font-family: var(--font-two);
+  color: var(--lime);
+  font-size: 2rem;
+  text-align: center;
+  
+  h2 {
+    //text-shadow: 0 0 10px var(--lime);
+  }
+}
+
+h3 {
+  font-family: var(--font-two);
+  color: var(--teal);
+  background-color: var(--darkPlum);
+  border: solid var(--lime) 4px;
+  margin: auto;
+  margin-bottom: 1rem;
+  width: 60vw;
+  padding: 1rem;
+  font-size: 1.8rem;
+  border-radius: 12px;
+}
+
+#amount-div {
+
+  width: 60vw;
+  margin: auto;
+
+}
+
+
+#card-div {
+  width: 60vw;
+  margin: auto;
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+#payment-div {
+
+  margin: auto;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .submit-button {
+    background-color: var(--darkPlum);
+    color: var(--lime);
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    font-family: var(--font-two);
+    font-size: 1.8rem;
+    padding: 1rem;
+  }
+}
+
+
+#spinner-div {
+  background-color: rgba(0,0,0,.4);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  mat-spinner {
+    margin: auto;
+    margin-top: 40vh;
+    color: var(--lime);
+  }
+}
+
+#success-div {
+  margin: auto;
+  width: 60vw;
+  margin-top: 2rem;
+  background-color: var(--lime);
+  color: var(--plum);
+  padding: 1.4rem;
+  border-radius: 20px;
+  h1 {
+    margin: 2rem;
+    font-size: 6rem;
+    font-family: var(--font-one);
+  }
+}
+
+#failure-div {
+  margin: auto;
+  margin-top: 2rem;
+  width: 60vw;
+  background-color: red;
+  color: var(--darkPlum);
+  padding: 1.4rem;
+  border-radius: 20px;
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: var(--lime);
+}
+
+
+
+@media screen and (max-width: 700px) {
+  #payment-div {
+    width: 80vw;
+  }
+  #card-div {
+    width: 80vw;
+  }
+  #amount-div {
+    width: 80vw;
+  }
+  #success-div {
+    width: 80vw;
+    h1 {
+      font-size: 4rem;
+    }
+  }
+  #failure-div {
+    width: 80vw;
+  }
+}
