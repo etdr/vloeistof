@@ -1,16 +1,18 @@
-div#navbar {
+#navbar {
   display: flex;
-  //width: 100vw;
+  width: 100vw;
+  margin-top: 0px;
   background: var(--plum);
-  flex-wrap: wrap;
-  align-items: center;
-  border-bottom: 10px solid var(--darkPlum);
+  // flex-wrap: wrap;
+  // align-items: center;
+  // border-bottom: 10px solid var(--darkPlum);
 }
 
 
 .header {
   // border: 1px solid black;
   height: 100px;
+  width: 100vw;
   background-color: var(--orange);
   // border-top-right-radius: 30px;
   // border-bottom-right-radius: 30px;
@@ -43,6 +45,8 @@ div#navbar {
 .menuBar {
   background-color: var(--plum);
   // border: 1px solid paleturquoise;
+  display: flex;
+  align-items: center;
 
 }
 

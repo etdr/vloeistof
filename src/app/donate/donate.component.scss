@@ -1,3 +1,80 @@
+.donate-landing-page {
+  display: flex;
+  flex-flow: column nowrap;
+  // justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-bottom: 50px;
+}
+
+#amount-div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#preset-amounts-div {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: space-between;
+  width: 30vw;
+  min-width: 350px;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.chump-change {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items:space-between;
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+
+.now-were-talkin {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items:space-between;
+  flex-grow: 1;
+  flex-shrink: 2;
+  margin-top: 10px;
+}
+
+.show-me-the-money {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items:space-between;
+  flex-grow: 1;
+  flex-shrink: 2;
+  margin-top:10px;
+  margin-bottom: 20px;
+}
+
+.money-input {
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 30vw;
+  min-width: 350px;
+  color: var(--teal);
+  font-size: 20pt;
+}
+
+::ng-deep .mat-form-field-underline {
+  background-color: var(--teal) !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color: var(--teal) !important;
+  font-size: 40px;
+}
 
 button {
   background-color: var(--darkPlum);
@@ -9,21 +86,21 @@ button {
   padding: 1rem;
 }
 
-.mat-form-field {
+// .mat-form-field {
 
-  color: var(--lime);
-  display: flex;
+//   color: var(--lime);
+//   display: flex;
 
 
-  input {
-    color: var(--teal);
-    display: inline-block;
-  }
+//   input {
+//     color: var(--teal);
+//     display: inline-block;
+//   }
 
-  button {
-    display: inline-block;
-  }
-}
+//   button {
+//     display: inline-block;
+//   }
+// }
 
 
 .title-h2 {
@@ -50,12 +127,12 @@ h3 {
   border-radius: 12px;
 }
 
-#amount-div {
+// #amount-div {
 
-  width: 60vw;
-  margin: auto;
+//   width: 60vw;
+//   margin: auto;
 
-}
+// }
 
 
 #card-div {
