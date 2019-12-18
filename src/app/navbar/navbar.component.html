@@ -8,6 +8,7 @@
           <a routerLink="/mix"><button mat-menu-item routerLinkActive="active-link">Mix</button></a>
           <a routerLink="/search"><button mat-menu-item routerLinkActive="active-link">Search</button></a>
           <a routerLink="/credits"><button mat-menu-item routerLinkActive="active-link">About</button></a>
+          <a routerLink="/donate"><button mat-menu-item routerLinkActive="active-link">Donate</button></a>
           <a routerLink="/admin"><button mat-menu-item *ngIf="authService.admin" routerLinkActive="active-link">Admin</button></a>
           <button id="drinkMenu" mat-menu-item (click)="logout()">Logout</button>
         </mat-menu>

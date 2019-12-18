@@ -16,6 +16,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,9 @@ import { PostboxComponent, PostDialogue } from './mydrinks/drinkslist/postbox/po
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DonateComponent } from './donate/donate.component';
+
+import { httpInterceptorProviders } from './interceptors/index';
 
 
 
@@ -62,7 +66,8 @@ import { environment } from '../environments/environment';
     PostComponent,
     PostboxComponent,
     PostDialogue,
-    ConfirmUserDelete
+    ConfirmUserDelete,
+    DonateComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +89,8 @@ import { environment } from '../environments/environment';
     ReactiveFormsModule,
     MatDialogModule,
     MatMenuModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MatProgressSpinnerModule
   ],
   entryComponents: [
     ModifyDrinkDialog,
@@ -96,7 +102,9 @@ import { environment } from '../environments/environment';
     AddIngDialog,
     ConfirmUserDelete
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

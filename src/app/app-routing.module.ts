@@ -11,6 +11,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AdminGuard } from './admin.guard';
 import { DrinksListComponent } from './mydrinks/drinkslist/drinkslist.component';
+import { DonateComponent } from './donate/donate.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,9 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
   { path: 'credits', component: CreditsComponent },
   { path: 'login', component: AuthComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard]}
+  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
+  { path: 'donate', component: DonateComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({

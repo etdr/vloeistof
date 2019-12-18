@@ -7,12 +7,6 @@ import { APIURL } from '../environments/environment.prod';
 
 const BASEURL = APIURL+"/api/ing";
 
-let httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': ''
-  })
-};
 
 
 @Injectable({
@@ -24,12 +18,10 @@ export class IngredientsService {
               private authService: AuthService) { }
 
   getIngs () {
-    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    return this.http.get<Ingredient[]>(BASEURL, httpOptions);
+    return this.http.get<Ingredient[]>(BASEURL);
   }
 
   postIng (ing: Ingredient) {
-    httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    return this.http.post<Ingredient>(BASEURL+'/new', {ing}, httpOptions);
+    return this.http.post<Ingredient>(BASEURL+'/new', {ing});
   }
 }
