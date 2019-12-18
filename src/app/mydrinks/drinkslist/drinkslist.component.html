@@ -48,4 +48,11 @@
 
     </mat-card-content>
   </mat-card>
+
+  
+</div>
+<div id="pagination-div">
+  <button mat-raised-button *ngIf="page > 0" (click)="pageBackward()">back</button>
+  <h3>{{page}}</h3>
+  <button mat-raised-button (click)="pageForward()">fwd</button>
 </div>

@@ -24,6 +24,9 @@ export class DrinksListComponent implements OnInit {
 
   drinks: Drink[] = [];
 
+  page: number = 0;
+  pageSize: number = 10;
+
   constructor(private router: Router,
               private route: ActivatedRoute,
               private drinksService: DrinksService,
@@ -31,22 +34,27 @@ export class DrinksListComponent implements OnInit {
               public authService: AuthService) { }
 
   ngOnInit() {
+    this.getDrinks();
+  }
+
+  getDrinks() {
+    this.drinks = [];
     this.route.url
-      .subscribe(urlSeg => {
-        const url = urlSeg[0].path;
-        switch (url) {
-          case 'my':
-            this.drinksService.getMyDrinks().subscribe(ds => this.drinks = ds); break;
-          case 'created':
-            this.drinksService.getCreatedDrinks().subscribe(ds => this.drinks = ds); break;
-          case 'api':
-            this.drinksService.getAPIDrinks().subscribe(ds => this.drinks = ds); break;
-          case 'favorite':
-            this.drinksService.getFavoriteDrinks().subscribe(ds => this.drinks = ds); break;
-          case 'all':
-            this.drinksService.getAllDrinks().subscribe(ds => this.drinks = ds); break;
-        }
-      });
+    .subscribe(urlSeg => {
+      const url = urlSeg[0].path;
+      switch (url) {
+        case 'my':
+          this.drinksService.getMyDrinks(this.page, this.pageSize).subscribe(ds => this.drinks = ds); break;
+        case 'created':
+          this.drinksService.getCreatedDrinks(this.page, this.pageSize).subscribe(ds => this.drinks = ds); break;
+        case 'api':
+          this.drinksService.getAPIDrinks(this.page, this.pageSize).subscribe(ds => this.drinks = ds); break;
+        case 'favorite':
+          this.drinksService.getFavoriteDrinks(this.page, this.pageSize).subscribe(ds => this.drinks = ds); break;
+        case 'all':
+          this.drinksService.getAllDrinks(this.page, this.pageSize).subscribe(ds => this.drinks = ds); break;
+      }
+    });
   }
 
   favoriteDrink(drink: Drink) {
@@ -121,6 +129,21 @@ export class DrinksListComponent implements OnInit {
       }
     })
 
+  }
+
+  pageForward() {
+    this.page++;
+    // etc
+    this.getDrinks();
+  }
+
+  pageBackward() {
+    if (this.page === 0) {
+      return;
+    }
+    this.page--;
+    //
+    this.getDrinks();
   }
 
 }

@@ -21,24 +21,39 @@ export class DrinksService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   
-  getMyDrinks() {
-    return this.http.get<Drink[]>(BASEURL+"/user/"+this.authService.userId.toString());
+  getMyDrinks(p, pS) {
+    return this.http.get<Drink[]>(BASEURL
+      +"/user/"+this.authService.userId.toString()
+      +"?page="+p.toString()
+      +"&pageSize="+pS.toString());
   }
 
-  getCreatedDrinks() {
-    return this.http.get<Drink[]>(BASEURL+"/user/"+this.authService.userId.toString()+"/created");
+  getCreatedDrinks(p, pS) {
+    return this.http.get<Drink[]>(BASEURL
+      +"/user/"+this.authService.userId.toString()
+      +"/created"
+      +"?page="+p.toString()
+      +"&pageSize="+pS.toString());
   }
 
-  getAPIDrinks() {
-    return this.http.get<Drink[]>(BASEURL+"/user/"+this.authService.userId.toString()+"/api");
+  getAPIDrinks(p, pS) {
+    return this.http.get<Drink[]>(BASEURL
+      +"/user/"+this.authService.userId.toString()
+      +"/api"
+      +"?page="+p.toString()
+      +"&pageSize="+pS.toString());
   }
 
-  getFavoriteDrinks() {
-    return this.http.get<Drink[]>(BASEURL+"/user/"+this.authService.userId.toString()+"/favorite");
+  getFavoriteDrinks(p, pS) {
+    return this.http.get<Drink[]>(BASEURL
+      +"/user/"+this.authService.userId.toString()
+      +"/favorite"
+      +"?page="+p.toString()
+      +"&pageSize="+pS.toString());
   }
 
-  getAllDrinks (): Observable<Drink[]> {
-    return this.http.get<Drink[]>(BASEURL);
+  getAllDrinks (p, pS): Observable<Drink[]> {
+    return this.http.get<Drink[]>(BASEURL+"?page="+p.toString()+"&pageSize="+pS.toString());
   }
 
 
