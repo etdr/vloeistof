@@ -19,7 +19,8 @@ export class HeaderInterceptor implements HttpInterceptor {
     // cloned headers, updated with the authorization.
       const authReq = req.clone({ setHeaders: {
         Authorization: this.authService.token,
-        "Content-Type": 'application/json'
+        "Content-Type": 'application/json',
+        'ngsw-bypass': 'true'
       } });
 
       return next.handle(authReq);
