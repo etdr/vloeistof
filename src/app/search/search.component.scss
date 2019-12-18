@@ -1,3 +1,9 @@
+h1 {
+    font-family: var(--font-two);
+    color: var(--lime);
+    text-shadow: 0 0 10px var(--lime);
+  }
+
 .searchField {
     display: flex;
     flex-flow: row nowrap;
