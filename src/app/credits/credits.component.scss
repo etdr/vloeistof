@@ -1,5 +1,5 @@
 .mainAboutDiv {
-  width: 100vw;
+  // width: 100vw;
   // height: 100vh;
   // border: 5px solid white;
   display: flex;
@@ -54,15 +54,16 @@ h1 {
   display: flex;
   justify-content: center;
   // align-content: stretch;
-  width: 60%;
+  width: 48%;
   margin: auto;
   flex-direction: column;
+  
 }
 
 #line1 {
   // border: 1px solid white;
   width: 77%;
-  margin: auto;
+  // margin: auto;
 
 }
 
