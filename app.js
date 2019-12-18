@@ -3,6 +3,12 @@ const path = require('path');
 
 const app = express();
 
+app.enable('trust proxy');
+app.use((req, res, next) => {
+  if (req.secure) next();
+  else res.redirect(301, 'https://' + req.headers.host + req.url);
+});
+
 app.use(express.static('./dist/vloeistof'));
 //app.server.get('*.*', express.static('dist'))
 
