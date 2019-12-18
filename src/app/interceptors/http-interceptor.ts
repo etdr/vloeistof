@@ -17,10 +17,12 @@ export class HeaderInterceptor implements HttpInterceptor {
     if (this.authService.token) {
       // Clone the request and replace the original headers with
     // cloned headers, updated with the authorization.
+
+      if (req.url.indexOf("thecocktaildb") >= 0) return next.handle(req);
+
       const authReq = req.clone({ setHeaders: {
         Authorization: this.authService.token,
         "Content-Type": 'application/json',
-        'ngsw-bypass': 'true'
       } });
 
       return next.handle(authReq);
