@@ -98,7 +98,7 @@ h3 {
 }
 
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 620px) {
 
   .aboutCards {
     flex-wrap: wrap;
@@ -107,6 +107,14 @@ h3 {
   .team {
     width: 80vw;
     margin-bottom: 3rem;
+  }
+
+  p {
+    width: 100%;
+  }
+
+  .aboutText {
+    width: 90%;
   }
 
 }
