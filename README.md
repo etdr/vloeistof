@@ -15,7 +15,6 @@ Vloeistof (Dutch/Flemish for "liquid") is an app to track your mixed drinks. Fea
 * We have an admin panel (trust me).
 * On mobile you can go to the Chrome menu and "Add to Home Screen" for behavior just like an app.
 * You can also "install" the app on desktop (look for the "Install" button in the address bar on Chrome).
-* Check out our credits page!
 * Our color scheme is tropical and delicious.
 
 Here's a link to the repo for [the back end](https://github.com/dteli/vloeistof-server).

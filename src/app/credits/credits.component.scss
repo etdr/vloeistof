@@ -1,48 +1,66 @@
-.creditsDiv {
-  border: 2px solid white;
+.mainAboutDiv {
+  width: 100vw;
+  // height: 100vh;
+  // border: 5px solid white;
+  display: flex;
+  // justify-content: center;
+  flex-flow: column;
 }
 
-#creditsTitle {
-  color: var(--lime);
+.h1DivAbout {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
   font-family: var(--font-two);
-  font-size: 40px;
-  // border: 1px solid pink;
-  width: 15%;
-  margin: auto;
-}
-
-#creditsSubtitle {
-  color: var(--teal);
-  font-family: var(--font-three); //find a different font Lindsey - I don't like this one. Love, Lindsey.
-  font-size: 25px;
-  // border: 1px solid yellow;
-  width: 80%;
-  margin: auto;
-}
-
-.creditIconsDiv {
-  border: 1px solid palegreen;
   color: var(--lime);
+  text-shadow: 0 0 10px var(--lime);
+  // border: 1px solid white;
+  width: 25%;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  
 }
 
-.iconsCredit {
-  // border: 1px solid palegoldenrod;
-  width: 45%;
-  margin: auto;
-}
 
-#freepikCredit {
-  font-family: var(--font-three);
-  padding: 10px;
-  font-size: 20px;
-}
 
-.creditFreepik {
-  // border: 1px solid palevioletred;
+.aboutCards {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-around;
+  padding-bottom: 20px;
+}
+
+.team {
+  width: 25%;
+  background-color: var(--lime);
+  border: 2px solid var(--plum);
+  border-radius: 10px;
+  font-family: var(--font-four);
+  color: var(--plum);
+  
+}
+
+
+.aboutText {
+  // border: 1px solid orangered;
+  font-family: var(--font-four);
+  color: var(--teal);
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  // align-content: stretch;
+  width: 60%;
+  margin: auto;
+  flex-direction: column;
+}
+
+#line1 {
+  // border: 1px solid white;
+  width: 77%;
+  margin: auto;
 
 }
 
@@ -50,46 +68,28 @@ a {
   color: var(--lime);
 }
 
-#margCredit {
-  height: 75px;
+
+
+h3 {
+  // border: 1px solid white;
+  width: 45%;
+  margin: auto;
+  font-family: var(--font-two);
 }
 
-#cosmoCredit {
-  height: 75px;
+.githubLogo {
+  height: 50px;
+  padding: 10px;
 }
 
-#mojitoCredit {
-  height: 75px;
+.linkedInLogo {
+  height: 50px;
+  padding: 10px;
 }
 
-#shakerCredit {
-  height: 75px;
-}
-
-#bottlesCredit {
-  height: 75px;
-}
-
-#favAddCredit {
-  height: 75px;
-}
-
-#favHeartRed {
-  height: 75px;
-}
-
-#barBeach {
-  border: 1px solid white;
-}
-
-#barCredit {
-  height: 75px;
-}
-
-#beachCredit {
-  height: 75px;
-}
-
-#logout {
-  height: 75px;
+#reeseGithubLogo {
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-items: flex-end;
 }

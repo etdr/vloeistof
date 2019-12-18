@@ -7,7 +7,7 @@
           <button id="drinkMenu" mat-menu-item [matMenuTriggerFor]="drinks">Drinks</button>
           <a routerLink="/mix"><button mat-menu-item routerLinkActive="active-link">Mix</button></a>
           <a routerLink="/search"><button mat-menu-item routerLinkActive="active-link">Search</button></a>
-          <a routerLink="/credits"><button mat-menu-item routerLinkActive="active-link">Credits</button></a>
+          <a routerLink="/credits"><button mat-menu-item routerLinkActive="active-link">About</button></a>
           <a routerLink="/admin"><button mat-menu-item *ngIf="authService.admin" routerLinkActive="active-link">Admin</button></a>
           <button id="drinkMenu" mat-menu-item (click)="logout()">Logout</button>
         </mat-menu>
@@ -20,9 +20,9 @@
         </mat-menu>
       </div>
   <div class="header">
-    <img id=cosmo src="../../assets/cosmopolitan.png">
+    <a href="https://www.flaticon.com/free-icon/cosmopolitan_920696" target="_blank"><img id=cosmo src="../../assets/cosmopolitan.png"></a>
     <p id="headerText">Vloeistof</p>
-    <img id=marg src="../../assets/marg.png">
+    <a href="https://www.flaticon.com/free-icon/cocktail_920738" target="_blank"><img id=marg src="../../assets/marg.png"></a>
   </div>
 </div>  
 
