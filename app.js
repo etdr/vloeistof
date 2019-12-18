@@ -11,4 +11,4 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(3025, () => console.log("listening on port"));
+app.listen(process.env.PORT || 3025, () => console.log("listening on port"));
