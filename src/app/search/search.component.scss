@@ -5,6 +5,7 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 100vw;
 
     button {
         background-color: var(--orange);
@@ -75,11 +76,6 @@ mat-card-title-group {
     }
 }
 
-#cdk-accordion-child-0 {
-    position: absolute;
-    background-color: pink;
-    color: pink;
-}
 
 mat-expansion-panel {
     background-color: var(--darkPlum);

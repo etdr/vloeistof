@@ -1,23 +1,38 @@
-<div class="title-h2">
-  <h2>Donate to Vloeistof</h2>
-</div>
-
-<div id="amount-div" *ngIf="!clientSecret">
-  <div id="preset-amounts-div">
-    <button mat-raised-button class="preset-amount-button" (click)="setAmount(100)">$1</button>
-    <button mat-raised-button class="preset-amount-button" (click)="setAmount(200)">$2</button>
-    <button mat-raised-button class="preset-amount-button" (click)="setAmount(500)">$5</button>
-    <button mat-raised-button class="preset-amount-button" (click)="setAmount(1000)">$10</button>
-    <button mat-raised-button class="preset-amount-button" (click)="setAmount(2000)">$20</button>
-    <button mat-raised-button class="preset-amount-button" (click)="setAmount(10000)">$100</button>
-    <button mat-raised-button class="preset-amount-button" (click)="setAmount(100000)">$1000</button>
+<div class="donate-landing-page">
+  <div class="title-h2">
+    <h2>Donate to Vloeistof</h2>
   </div>
-  <mat-form-field>
-    <input matInput placeholder="or enter US dollar amount" [(ngModel)]="amount">
-  </mat-form-field>
-  <button mat-raised-button type="button" (click)="setAmount(undefined)">Enter card details</button>
-</div>
 
+  <div id="amount-div" *ngIf="!clientSecret">
+    <div id="preset-amounts-div">
+      <div class="chump-change">
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(100)">$1</button>
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(200)">$2</button>
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(500)">$5</button>
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(1000)">$10</button>
+      </div>
+      <div class="now-were-talkin">
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(2000)">$20</button>
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(5000)">$50</button>
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(10000)">$100</button>
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(25000)">$250</button>
+      </div>
+      <div class="show-me-the-money">
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(50000)">$500</button>
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(100000)">$1000</button>
+        <button mat-raised-button class="preset-amount-button" (click)="setAmount(1000000)">$10000</button>
+      </div>
+    </div>
+    <div class="money-input">
+      <mat-form-field>
+        <input matInput placeholder="or enter US dollar amount" [(ngModel)]="amount">
+      </mat-form-field>
+    </div>
+    <div class="enter-card-deets-button">
+      <button mat-raised-button type="button" (click)="setAmount(undefined)">Enter card details</button>
+    </div>
+  </div>
+</div>
 
 <div id="payment-div" *ngIf="clientSecret && succeeded === undefined">
 
