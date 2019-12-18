@@ -13,11 +13,11 @@ export class MydrinksComponent implements OnInit {
   //myDrinks: Drink[] = [];
 
   navLinks = [
-    {label: 'my', path:'./my'},
-    {label: 'created', path:'./created'},
-    {label: 'api', path:'./api'},
-    {label: 'favorite', path:'./favorite'},
-    {label: 'all', path:'./all'}
+    {label: 'My Drinks', path:'./my'},
+    {label: 'Created', path:'./created'},
+    {label: 'Saved', path:'./api'},
+    {label: 'Favorite', path:'./favorite'},
+    {label: 'All', path:'./all'}
   ];
 
   constructor(private drinksService: DrinksService) { }
