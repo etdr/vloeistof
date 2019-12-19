@@ -27,7 +27,7 @@ export class DonateComponent implements OnInit {
 
   ngOnInit() {
 
-    this.stripe = Stripe(STRIPEURL_TEST);
+    this.stripe = Stripe(STRIPEURL_LIVE);
     this.elements = this.stripe.elements({
       fonts: [
         { cssSrc: 'https://use.typekit.net/gua2bru.css' }

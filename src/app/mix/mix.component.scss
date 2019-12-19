@@ -28,6 +28,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1.6rem;
 }
 
 .addDrinkButton {
@@ -98,6 +99,8 @@ mat-form-field {
     border: 1px solid var(--teal);
     border-radius: 10px;
     font-family: var(--font-two);
+    font-size: 2rem;
+    padding: 1.4rem;
   }
 
   #addIngredientButton {

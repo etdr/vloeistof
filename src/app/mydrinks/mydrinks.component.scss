@@ -73,8 +73,13 @@ nav {
   background: var(--orange); 
 }
 
+@media screen and (max-width: 840px) {
+  .mat-tab-link {
+    min-width: 110px;
+  }
+}
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
   .tabsNav {
     display: none;
   }

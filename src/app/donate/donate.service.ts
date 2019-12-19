@@ -28,7 +28,7 @@ export class DonateService {
 
   setAmount (a: number) {
     //httpOptions.headers = httpOptions.headers.set('Authorization', this.authService.token);
-    return this.http.post<PaymentIntent>(BASEURL+'/test', {amount: a});
+    return this.http.post<PaymentIntent>(BASEURL, {amount: a});
     //return this.http.post<PaymentIntent>(BASEURL, {amount: a}, httpOptions);
   }
 }
