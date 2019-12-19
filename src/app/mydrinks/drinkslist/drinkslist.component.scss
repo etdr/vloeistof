@@ -189,4 +189,22 @@ textarea.mat-input-element {
   }
 }
 
+@media screen and (max-width: 1600px) {
 
+  #pagination-div {
+    width: 60%;
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+  #pagination-div {
+    width: 90%;
+    .page-button-div {
+      button {
+        font-size: 1.8rem;
+        padding: 1rem;
+      }
+    }
+  }
+}
