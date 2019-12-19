@@ -151,6 +151,28 @@ textarea.mat-input-element {
   width: .6rem;
 }
 
+::ng-deep .mat-dialog-container {
+  background: var(--orange);
+  border: solid var(--darkPlum) 10px;
+  //color: var(--orange);
+}
+
+.favoriting {
+  display: flex;
+  flex-flow: row nowrap;
+  min-width: 350px;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  // text-align: center;
+}
+
+.modifier-page {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
 
 #pagination-div {
 
@@ -188,5 +210,4 @@ textarea.mat-input-element {
     text-align: center;
   }
 }
-
 
