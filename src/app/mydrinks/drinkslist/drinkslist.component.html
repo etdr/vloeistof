@@ -51,8 +51,12 @@
 
   
 </div>
-<div id="pagination-div">
-  <button mat-raised-button *ngIf="page > 0" (click)="pageBackward()">back</button>
-  <h3>{{page}}</h3>
-  <button mat-raised-button (click)="pageForward()">fwd</button>
+<div id="pagination-div" *ngIf="page > 0 || drinks.length === pageSize">
+  <div class="page-button-div">
+    <button mat-raised-button *ngIf="page > 0" (click)="pageBackward()">back</button>
+  </div>
+  <h3>{{page+1}}</h3>
+  <div class="page-button-div">
+    <button mat-raised-button (click)="pageForward()" *ngIf="drinks.length === pageSize">fwd</button>
+  </div>
 </div>
