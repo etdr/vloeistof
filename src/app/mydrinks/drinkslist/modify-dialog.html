@@ -73,7 +73,7 @@
 <div class="favoriting">
   <h2 class="inline-header">Add this drink to favorites?</h2>
   <button mat-raised-button class="drink-button" (click)="flipFavorite(data.drink)">
-      <mat-icon id="hearty">{{favorite ? "favorite" : "favorite_border"}}</mat-icon>
+      <mat-icon id="hearty">{{data.drink.favorite ? "favorite" : "favorite_border"}}</mat-icon>
   </button>
 </div>
 
