@@ -25,7 +25,7 @@ export class DrinksListComponent implements OnInit {
   drinks: Drink[] = [];
 
   page: number = 0;
-  pageSize: number = 10;
+  pageSize: number = 12;
 
   constructor(private router: Router,
               private route: ActivatedRoute,

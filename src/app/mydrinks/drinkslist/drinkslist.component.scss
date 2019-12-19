@@ -151,7 +151,6 @@ textarea.mat-input-element {
   width: .6rem;
 }
 
-
 ::ng-deep .mat-dialog-container {
   background: var(--orange);
   border: solid var(--darkPlum) 10px;
@@ -174,3 +173,41 @@ textarea.mat-input-element {
   justify-content: center;
   align-items: center;
 }
+
+#pagination-div {
+
+  margin: 2rem auto;
+  display: flex;
+  width: 30%;
+
+  .page-button-div {
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22rem;
+
+    button {
+      color: var(--lime);
+      background-color: var(--darkPlum);
+      border: 4px solid var(--teal);
+      border-radius: 10px;
+      font-family: var(--font-two);
+      font-size: 2.4rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    flex-grow: 1;
+    font-size: 3rem;
+    display: inline-block;
+    color: var(--lime);
+    font-family: var(--font-two);
+    text-align: center;
+  }
+}
+
