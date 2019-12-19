@@ -23,10 +23,10 @@
 //   flex-grow: 1;
 // }
 
-// #spacer {
-//   flex-grow: 1;
+#spacer {
+  flex-grow: 1;
 
-// }
+}
 
 .masterdiv {
   display: flex;
@@ -38,6 +38,7 @@
   margin-left: 0px;
   padding-left: 0px;
   padding-right: 0px;
+  min-height: 100vh;
 }
 
 .appies {
@@ -46,6 +47,7 @@
   margin-right: 0px;
   padding-left: 0px;
   padding-right: 0px;
+  flex-grow: 0;
 }
 
 .routies {
@@ -62,4 +64,5 @@
   margin-right: 0px;
   padding-left: 0px;
   padding-right: 0px;
+  flex-grow: 0;
 }
